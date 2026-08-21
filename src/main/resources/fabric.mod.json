@@ -1,0 +1,37 @@
+{
+	"schemaVersion": 1,
+	"id": "waywardalchemist",
+	"version": "${version}",
+	"name": "WaywardAlchemist",
+	"description": "A mod about potions, brewing, and moving ever onward",
+	"authors": [
+		"Hat"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/waywardalchemist/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"hat.waywardalchemist.WaywardAlchemist"
+		],
+		"fabric-datagen": [
+			"hat.waywardalchemist.WaywardAlchemistDataGenerator"
+		],
+		"client": [
+			"hat.waywardalchemist.WaywardAlchemistClient"
+		]
+	},
+	"mixins": [
+		"waywardalchemist.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.19.3",
+		"minecraft": "~1.21.11",
+		"java": ">=21",
+		"fabric-api": "*"
+	}
+}
