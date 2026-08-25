@@ -47,6 +47,7 @@ public class AlchemistFireItem extends Item {
 
     private void playUseSound(World world, BlockPos pos) {
         Random random = world.getRandom();
-        world.playSound((Entity)null, pos, SoundEvents.ITEM_FIRECHARGE_USE, SoundCategory.BLOCKS, 1.0F, (random.nextFloat() - random.nextFloat()) * 2.0F + 3.0F);
+        world.playSound((Entity)null, pos, SoundEvents.ENTITY_MAGMA_CUBE_JUMP, SoundCategory.BLOCKS, 1.0F, (random.nextFloat() - random.nextFloat()) * 0.7F + 2.0F);
     }
+
 }

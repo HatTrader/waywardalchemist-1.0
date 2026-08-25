@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "food",
+  "ingredients": [
+    "minecraft:nether_wart",
+    "minecraft:nether_wart",
+    "minecraft:sugar",
+    "minecraft:wheat"
+  ],
+  "result": {
+    "id": "waywardalchemist:sweet_treat",
+    "count": 2
+  }
+}

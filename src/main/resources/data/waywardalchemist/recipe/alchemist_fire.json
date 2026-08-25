@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:copper_nugget",
+    "minecraft:magma_cream",
+    "minecraft:gunpowder"
+  ],
+  "result": {
+    "id": "waywardalchemist:alchemist_fire",
+    "count": 2
+  }
+}

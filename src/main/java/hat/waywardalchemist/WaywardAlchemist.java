@@ -5,7 +5,7 @@ import hat.waywardalchemist.block.entity.WaywardAlchemistBlockEntities;
 import hat.waywardalchemist.items.WaywardAlchemistItems;
 import hat.waywardalchemist.screen.WaywardAlchemistScreenHandlers;
 import net.fabricmc.api.ModInitializer;
-
+import net.fabricmc.fabric.api.registry.FuelRegistryEvents;
 import net.minecraft.util.Identifier;
 
 import org.slf4j.Logger;
@@ -21,6 +21,7 @@ public class WaywardAlchemist implements ModInitializer {
 		WaywardAlchemistBlocks.registerWABlocks();
 		WaywardAlchemistBlockEntities.registerWABlockEntities();
 		WaywardAlchemistScreenHandlers.registerWAScreenHandlers();
+		FuelRegistryEvents.BUILD.register(((builder, context) -> {builder.add(WaywardAlchemistItems.ALCHEMIST_FIRE, 320 * 20);}));
 		LOGGER.info("Hello alchemist!");
 	}
 

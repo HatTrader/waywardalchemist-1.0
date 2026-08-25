@@ -14,6 +14,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
 
 
@@ -24,7 +25,7 @@ public class WaywardAlchemistBlocks {
                     .mapColor(MapColor.CYAN)
                     .instrument(NoteBlockInstrument.XYLOPHONE)
                     .requiresTool()
-                    .strength(0.5f, 3.0f)
+                    .strength(0.3f, 1.0f)
                     .sounds(BlockSoundGroup.COPPER_BULB)
                     .registryKey(createBlockRegistryKey("boiling_brewer_block"))));
 

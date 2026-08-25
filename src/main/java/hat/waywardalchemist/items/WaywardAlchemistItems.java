@@ -20,7 +20,7 @@ import java.util.function.Function;
 
 public class WaywardAlchemistItems {
 
-    public static Item SWEET_TREAT = register("sweet_treat", Item::new, new Item.Settings().food(new FoodComponent(3,0.6f,false), WaywardAlchemistConsumableComponents.SWEET_TREAT));
+    public static Item SWEET_TREAT = register("sweet_treat", Item::new, new Item.Settings().food(new FoodComponent(2,0.6f,false), WaywardAlchemistConsumableComponents.SWEET_TREAT));
     public static Item ALCHEMIST_FIRE = register("alchemist_fire", AlchemistFireItem::new, new Item.Settings().maxCount(64));
 
     public static Item register(String name, Function<Item.Settings, Item> itemFactory, Item.Settings settings) {
