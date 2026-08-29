@@ -17,6 +17,7 @@ public class AlchemistFireItem extends Item {
     public AlchemistFireItem(Settings settings) {
         super(settings);
     }
+
     public ActionResult useOnBlock(ItemUsageContext context) {
         World world = context.getWorld();
         BlockPos blockPos = context.getBlockPos();

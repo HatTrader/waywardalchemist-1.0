@@ -1,15 +1,54 @@
 package hat.waywardalchemist.mixin;
 
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
+import hat.waywardalchemist.effect.WaywardAlchemistEffects;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.damage.DamageTypes;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvent;
+import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.random.Random;
+import org.jspecify.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(MinecraftServer.class)
-public class ExampleMixin {
-    @Inject(at = @At("HEAD"), method = "loadWorld")
-    private void init(CallbackInfo info) {
-        // This code is injected into the start of MinecraftServer.loadWorld()V
+@Mixin(LivingEntity.class)
+public abstract class ExampleMixin {
+    @Inject(at = @At("HEAD"), method = "damage", cancellable = true)
+    private void thingy(ServerWorld world, DamageSource source, float amount, CallbackInfoReturnable cir) {
+        if ((LivingEntity) (Object) this != null && (LivingEntity) (Object) this instanceof LivingEntity entity) {
+            if (entity.hasStatusEffect(StatusEffects.LUCK) && Math.random() <= 0.25 * (entity.getStatusEffect(StatusEffects.LUCK).getAmplifier() + 1)) {
+                if (!source.isOf(DamageTypes.GENERIC_KILL) || !source.isOf(DamageTypes.MAGIC) || !source.isOf(DamageTypes.INDIRECT_MAGIC) || !source.isOf(DamageTypes.DROWN)) {
+                    entity.addVelocity(new Vec3d(0, 0, 0).addHorizontalRandom(Random.create(), 1.2f));
+                    world.playSound(entity, entity.getX(), entity.getY(), entity.getZ(), SoundEvents.ENTITY_BREEZE_DEFLECT, SoundCategory.PLAYERS);
+                    cir.cancel();
+                }
+            }
+        }
     }
+
+    @WrapOperation(method = "damage", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;applyDamage(Lnet/minecraft/server/world/ServerWorld;Lnet/minecraft/entity/damage/DamageSource;F)V"))
+    private void thingo(LivingEntity instance, ServerWorld world, DamageSource source, float amount, Operation<Void> original) {
+        float multiplier = instance.hasStatusEffect(WaywardAlchemistEffects.FLAMMABILITY) || source.isOf(DamageTypes.ON_FIRE) ? 2.0f : 1.0f;
+        if (instance.hasStatusEffect(WaywardAlchemistEffects.FLAMMABILITY) && source.isOf(DamageTypes.IN_FIRE) || source.isOf(DamageTypes.ON_FIRE)) {
+            original.call(instance, world, source, amount*2);
+        } else if (instance.hasStatusEffect(WaywardAlchemistEffects.VULNERABILITY)) {
+            original.call(instance, world, source, amount*(1.2f*(instance.getStatusEffect(WaywardAlchemistEffects.VULNERABILITY).getAmplifier()+1)));
+        } else {
+            original.call(instance, world, source, amount);
+        }
+
+
+    }
+
 }

@@ -3,6 +3,7 @@ package hat.waywardalchemist;
 import hat.waywardalchemist.block.WaywardAlchemistBlocks;
 import hat.waywardalchemist.block.entity.WaywardAlchemistBlockEntities;
 import hat.waywardalchemist.items.WaywardAlchemistItems;
+import hat.waywardalchemist.potion.WaywardAlchemistPotions;
 import hat.waywardalchemist.screen.WaywardAlchemistScreenHandlers;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.registry.FuelRegistryEvents;
@@ -17,6 +18,7 @@ public class WaywardAlchemist implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+        WaywardAlchemistPotions.registerPotions();
 		WaywardAlchemistItems.registerWAItems();
 		WaywardAlchemistBlocks.registerWABlocks();
 		WaywardAlchemistBlockEntities.registerWABlockEntities();

@@ -6,14 +6,14 @@ import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.advancement.criterion.ItemDurabilityChangedCriterion;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.FoodComponent;
-import net.minecraft.item.FireChargeItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroups;
-import net.minecraft.item.ToolMaterial;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.registry.RegistryKeys;
+import net.minecraft.component.type.PotionContentsComponent;
+import net.minecraft.item.*;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.Potions;
+import net.minecraft.registry.*;
+import net.minecraft.registry.tag.ItemTags;
+import net.minecraft.registry.tag.TagKey;
+import net.minecraft.resource.featuretoggle.FeatureSet;
 import net.minecraft.util.Identifier;
 
 import java.util.function.Function;
@@ -22,6 +22,8 @@ public class WaywardAlchemistItems {
 
     public static Item SWEET_TREAT = register("sweet_treat", Item::new, new Item.Settings().food(new FoodComponent(2,0.6f,false), WaywardAlchemistConsumableComponents.SWEET_TREAT));
     public static Item ALCHEMIST_FIRE = register("alchemist_fire", AlchemistFireItem::new, new Item.Settings().maxCount(64));
+    public static Item INJECTION_POTION = register("injection_potion", InjectionPotionItem::new, new Item.Settings().maxCount(1));
+
 
     public static Item register(String name, Function<Item.Settings, Item> itemFactory, Item.Settings settings) {
         RegistryKey<Item> itemKey = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(WaywardAlchemist.MOD_ID, name));
@@ -33,14 +35,21 @@ public class WaywardAlchemistItems {
     public static void registerWAItems() {
         WaywardAlchemist.LOGGER.info("Registering items for " + WaywardAlchemist.MOD_ID);
         //put items in creative menu below
-
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register(fabricItemGroupEntries -> {
             fabricItemGroupEntries.add(SWEET_TREAT);
+            fabricItemGroupEntries.getContext().lookup().getOptional(RegistryKeys.POTION).ifPresent((registryWrapper) -> {
+                addPotions(fabricItemGroupEntries, registryWrapper, INJECTION_POTION, ItemGroup.StackVisibility.PARENT_AND_SEARCH_TABS, fabricItemGroupEntries.getContext().enabledFeatures());
+
+            });
         });
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(fabricItemGroupEntries -> {
             fabricItemGroupEntries.add(ALCHEMIST_FIRE);
         } );
         //like here replace this sentence ok thanks past hat
+    }
+
+    private static void addPotions(ItemGroup.Entries entries, RegistryWrapper<Potion> registryWrapper, Item item, ItemGroup.StackVisibility visibility, FeatureSet enabledFeatures) {
+        registryWrapper.streamEntries().filter((potionEntry) -> ((Potion)potionEntry.value()).isEnabled(enabledFeatures)).map((entry) -> PotionContentsComponent.createStack(item, entry)).forEach((stack) -> entries.add(stack, visibility));
     }
 
 }
