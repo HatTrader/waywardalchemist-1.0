@@ -27,6 +27,12 @@ public class WaywardAlchemistPotions {
                     Identifier.of(WaywardAlchemist.MOD_ID, "luck"),
                     new Potion("luck", new StatusEffectInstance(StatusEffects.LUCK, 1800, 0)));
 
+    public static final RegistryEntry<Potion> CONSTRUCTION_POTION =
+            Registry.registerReference(
+                    Registries.POTION,
+                    Identifier.of(WaywardAlchemist.MOD_ID, "construction"),
+                    new Potion("construction", new StatusEffectInstance(WaywardAlchemistEffects.CONSTRUCTION, 36000, 0)));
+
     public static final RegistryEntry<Potion> ABSORPTION_POTION =
             Registry.registerReference(
                     Registries.POTION,
@@ -71,6 +77,11 @@ public class WaywardAlchemistPotions {
                     Potions.THICK,
                     Items.EMERALD_BLOCK,
                     LUCK_POTION
+            );
+            builder.registerPotionRecipe(
+                    Potions.AWKWARD,
+                    Items.BAMBOO,
+                    CONSTRUCTION_POTION
             );
             builder.registerPotionRecipe(
                     Potions.THICK,

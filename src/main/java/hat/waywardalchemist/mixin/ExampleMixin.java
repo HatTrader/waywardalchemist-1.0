@@ -28,6 +28,7 @@ public abstract class ExampleMixin {
     @Inject(at = @At("HEAD"), method = "damage", cancellable = true)
     private void thingy(ServerWorld world, DamageSource source, float amount, CallbackInfoReturnable cir) {
         //keeping this here for me to have later, also if you're an actual modder reading this, shut up about the names.
+        //modder here, weird names are an essential part of having joy and whimsy in your life.
     }
 
     @WrapOperation(method = "damage", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;applyDamage(Lnet/minecraft/server/world/ServerWorld;Lnet/minecraft/entity/damage/DamageSource;F)V"))

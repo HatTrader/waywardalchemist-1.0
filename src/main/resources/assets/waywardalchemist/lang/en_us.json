@@ -7,6 +7,7 @@
 
   "effect.waywardalchemist.flammability": "Flammability",
   "effect.waywardalchemist.vulnerability": "Vulnerability",
+  "effect.waywardalchemist.construction": "Construction",
 
   "item.waywardalchemist.injection_potion.effect.water": "Water Syringe",
   "item.waywardalchemist.injection_potion.effect.mundane": "Mundane Syringe",
@@ -35,18 +36,22 @@
   "item.waywardalchemist.injection_potion.effect.absorption": "Syringe of Absorption",
   "item.waywardalchemist.injection_potion.effect.flammability": "Syringe of Flammability",
   "item.waywardalchemist.injection_potion.effect.vulnerability": "Syringe of Vulnerability",
+  "item.waywardalchemist.injection_potion.effect.Construction": "Syringe of Construction",
 
   "item.minecraft.splash_potion.effect.flammability": "Splash Potion of Flammability",
   "item.minecraft.splash_potion.effect.vulnerability": "Splash Potion of Vulnerability",
   "item.minecraft.splash_potion.effect.absorption": "Splash Potion of Absorption",
+  "item.minecraft.splash_potion.effect.construction": "Splash Potion of Construction",
   "item.minecraft.lingering_potion.effect.flammability": "Lingering Potion of Flammability",
   "item.minecraft.lingering_potion.effect.vulnerability": "Lingering Potion of Vulnerability",
   "item.minecraft.lingering_potion.effect.absorption": "Lingering Potion of Absorption",
+  "item.minecraft.lingering_potion.effect.construction": "Lingering Potion of Construction",
   "item.minecraft.potion.effect.flammability": "Potion of Flammability",
   "item.minecraft.potion.effect.vulnerability": "Potion of Vulnerability",
   "item.minecraft.potion.effect.absorption": "Potion of Absorption",
+  "item.minecraft.potion.effect.construction": "Potion of Construction",
   "item.minecraft.tipped_arrow.effect.flammability": "Arrow of Flammability",
   "item.minecraft.tipped_arrow.effect.vulnerability": "Arrow of Vulnerability",
-  "item.minecraft.tipped_arrow.effect.absorption": "Arrow of Absorption"
-
+  "item.minecraft.tipped_arrow.effect.absorption": "Arrow of Absorption",
+  "item.minecraft.tipped_arrow.effect.construction": "Arrow of Construction"
 }
