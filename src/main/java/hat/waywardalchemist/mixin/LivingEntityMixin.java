@@ -24,11 +24,12 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(LivingEntity.class)
-public abstract class ExampleMixin {
+public abstract class LivingEntityMixin {
     @Inject(at = @At("HEAD"), method = "damage", cancellable = true)
     private void thingy(ServerWorld world, DamageSource source, float amount, CallbackInfoReturnable cir) {
         //keeping this here for me to have later, also if you're an actual modder reading this, shut up about the names.
         //modder here, weird names are an essential part of having joy and whimsy in your life.
+        //good point, any other modders reading this take example from the person above me.
     }
 
     @WrapOperation(method = "damage", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;applyDamage(Lnet/minecraft/server/world/ServerWorld;Lnet/minecraft/entity/damage/DamageSource;F)V"))
