@@ -87,7 +87,7 @@ public class WaywardAlchemistPotions {
                     Items.REDSTONE,
                     LONG_ABSORPTION_POTION
             );
-            builder.registerPotionRecipe(
+            /*builder.registerPotionRecipe(
                     Potions.THICK,
                     Items.ARMADILLO_SCUTE,
                     VULNERABILITY_POTION
@@ -96,7 +96,7 @@ public class WaywardAlchemistPotions {
                     VULNERABILITY_POTION,
                     Items.GLOWSTONE_DUST,
                     STRONG_VULNERABILITY_POTION
-            );
+            );*/
             builder.registerPotionRecipe(
                     Potions.THICK,
                     WaywardAlchemistItems.ALCHEMIST_FIRE,

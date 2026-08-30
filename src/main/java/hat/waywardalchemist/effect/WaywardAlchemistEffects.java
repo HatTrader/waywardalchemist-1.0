@@ -17,6 +17,6 @@ public class WaywardAlchemistEffects {
             Registry.registerReference(Registries.STATUS_EFFECT, Identifier.of(WaywardAlchemist.MOD_ID, "vulnerability"), new VulnerabilityEffect());
 
     public static final RegistryEntry<StatusEffect> FLAMMABILITY =
-            Registry.registerReference(Registries.STATUS_EFFECT, Identifier.of(WaywardAlchemist.MOD_ID, "flammability"), new FlammabilityEffect().addAttributeModifier(EntityAttributes.BURNING_TIME, Identifier.of("flammability"), 2, EntityAttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+            Registry.registerReference(Registries.STATUS_EFFECT, Identifier.of(WaywardAlchemist.MOD_ID, "flammability"), new FlammabilityEffect().addAttributeModifier(EntityAttributes.BURNING_TIME, Identifier.of("flammability"), 1, EntityAttributeModifier.Operation.ADD_MULTIPLIED_BASE));
 
 }

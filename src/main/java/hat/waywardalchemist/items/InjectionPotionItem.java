@@ -28,7 +28,7 @@ public class InjectionPotionItem extends PotionItem {
                 PotionContentsComponent potionContentsComponent = (PotionContentsComponent) stack.getOrDefault(DataComponentTypes.POTION_CONTENTS, PotionContentsComponent.DEFAULT);
                 for (StatusEffectInstance effect : potionContentsComponent.getEffects()) {
                     RegistryEntry<StatusEffect> registryEntry = effect.getEffectType();
-                    target.addStatusEffect(new StatusEffectInstance(registryEntry, effect.getDuration() / 2, effect.getAmplifier()));
+                    target.addStatusEffect(new StatusEffectInstance(registryEntry, effect.getDuration(), effect.getAmplifier()));
                 }
                 target.getEntityWorld().playSound(null, target.getX(), target.getY(), target.getZ(), SoundEvents.ITEM_SPEAR_HIT, SoundCategory.PLAYERS, 1.1f, 1.0f);
                 player.getItemCooldownManager().set(stack, 75);
