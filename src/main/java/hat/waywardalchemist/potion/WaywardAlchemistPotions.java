@@ -3,9 +3,6 @@ package hat.waywardalchemist.potion;
 import hat.waywardalchemist.WaywardAlchemist;
 import hat.waywardalchemist.effect.WaywardAlchemistEffects;
 import hat.waywardalchemist.items.WaywardAlchemistItems;
-import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.client.model.loading.v1.PreparableModelLoadingPlugin;
-import net.fabricmc.fabric.api.event.registry.FabricRegistry;
 import net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistryBuilder;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
@@ -15,9 +12,7 @@ import net.minecraft.potion.Potions;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.entry.RegistryEntry;
-import net.minecraft.stat.Stat;
 import net.minecraft.util.Identifier;
-import net.minecraft.world.event.listener.GameEventListener;
 
 
 public class WaywardAlchemistPotions {
@@ -68,7 +63,7 @@ public class WaywardAlchemistPotions {
             Registry.registerReference(
                     Registries.POTION,
                     Identifier.of(WaywardAlchemist.MOD_ID, "strong_mining_fatigue"),
-                    new Potion("mining_fatigue", new StatusEffectInstance(StatusEffects.MINING_FATIGUE, 600, 3)));
+                    new Potion("mining_fatigue", new StatusEffectInstance(StatusEffects.MINING_FATIGUE, 600, 2)));
 
     public static final RegistryEntry<Potion> HASTE_POTION =
             Registry.registerReference(
@@ -81,6 +76,78 @@ public class WaywardAlchemistPotions {
                     Registries.POTION,
                     Identifier.of(WaywardAlchemist.MOD_ID, "strong_haste"),
                     new Potion("haste", new StatusEffectInstance(StatusEffects.HASTE, 3600, 1), new StatusEffectInstance(StatusEffects.WEAKNESS, 1800, 1)));
+
+    public static final RegistryEntry<Potion> EXTRA_STRONG_LEAPING_POTION =
+            Registry.registerReference(
+                    Registries.POTION,
+                    Identifier.ofVanilla("extra_strong_leaping"),
+                    new Potion("leaping", new StatusEffectInstance(StatusEffects.JUMP_BOOST, 1800, 2)));
+
+    public static final RegistryEntry<Potion> EXTRA_STRONG_SWIFTNESS_POTION =
+            Registry.registerReference(
+                    Registries.POTION,
+                    Identifier.ofVanilla("extra_strong_swiftness"),
+                    new Potion("swiftness", new StatusEffectInstance(StatusEffects.SPEED, 1800, 2)));
+
+    public static final RegistryEntry<Potion> EXTRA_STRONG_SLOWNESS_POTION =
+            Registry.registerReference(
+                    Registries.POTION,
+                    Identifier.ofVanilla("extra_strong_slowness"),
+                    new Potion("slowness", new StatusEffectInstance(StatusEffects.SLOWNESS, 400, 5)));
+
+    public static final RegistryEntry<Potion> EXTRA_STRONG_TURTLE_MASTER_POTION =
+            Registry.registerReference(
+                    Registries.POTION,
+                    Identifier.ofVanilla("extra_strong_turtle_master"),
+                    new Potion("turtle_master", new StatusEffectInstance(StatusEffects.RESISTANCE, 400, 4), new StatusEffectInstance(StatusEffects.SLOWNESS, 400, 6)));
+
+    public static final RegistryEntry<Potion> EXTRA_STRONG_HEALING_POTION =
+            Registry.registerReference(
+                    Registries.POTION,
+                    Identifier.ofVanilla("extra_strong_healing"),
+                    new Potion("healing", new StatusEffectInstance(StatusEffects.INSTANT_HEALTH, 1, 2)));
+
+    public static final RegistryEntry<Potion> EXTRA_STRONG_HARMING_POTION =
+            Registry.registerReference(
+                    Registries.POTION,
+                    Identifier.ofVanilla("extra_strong_harming"),
+                    new Potion("harming", new StatusEffectInstance(StatusEffects.INSTANT_DAMAGE, 1, 2)));
+
+    public static final RegistryEntry<Potion> EXTRA_STRONG_POISON_POTION =
+            Registry.registerReference(
+                    Registries.POTION,
+                    Identifier.ofVanilla("extra_strong_poison"),
+                    new Potion("poison", new StatusEffectInstance(StatusEffects.POISON, 420, 2)));
+
+    public static final RegistryEntry<Potion> EXTRA_STRONG_REGENERATION_POTION =
+            Registry.registerReference(
+                    Registries.POTION,
+                    Identifier.ofVanilla("extra_strong_regeneration"),
+                    new Potion("regeneration", new StatusEffectInstance(StatusEffects.REGENERATION, 440, 2)));
+
+    public static final RegistryEntry<Potion> EXTRA_STRONG_STRENGTH_POTION =
+            Registry.registerReference(
+                    Registries.POTION,
+                    Identifier.ofVanilla("extra_strong_strength"),
+                    new Potion("strength", new StatusEffectInstance(StatusEffects.STRENGTH, 1800, 2)));
+
+    public static final RegistryEntry<Potion> EXTRA_STRONG_ABSORPTION_POTION =
+            Registry.registerReference(
+                    Registries.POTION,
+                    Identifier.of(WaywardAlchemist.MOD_ID, "extra_strong_absorption"),
+                    new Potion("absorption", new StatusEffectInstance(StatusEffects.ABSORPTION, 1800, 2)));
+
+    public static final RegistryEntry<Potion> EXTRA_STRONG_MINING_FATIGUE_POTION =
+            Registry.registerReference(
+                    Registries.POTION,
+                    Identifier.of(WaywardAlchemist.MOD_ID, "extra_strong_mining_fatigue"),
+                    new Potion("mining_fatigue", new StatusEffectInstance(StatusEffects.MINING_FATIGUE, 600, 5)));
+
+    public static final RegistryEntry<Potion> EXTRA_STRONG_HASTE_POTION =
+            Registry.registerReference(
+                    Registries.POTION,
+                    Identifier.of(WaywardAlchemist.MOD_ID, "extra_strong_haste"),
+                    new Potion("haste", new StatusEffectInstance(StatusEffects.HASTE, 3600, 2), new StatusEffectInstance(StatusEffects.WEAKNESS, 1800, 2)));
 
     public static void registerPotions() {
         // Basic Potion Recipes
@@ -145,6 +212,67 @@ public class WaywardAlchemistPotions {
                     Items.POTION,
                     Items.IRON_INGOT,
                     WaywardAlchemistItems.INJECTION_POTION
+            );
+            // Philosopher's Ash Bullshit
+            builder.registerPotionRecipe(
+                    Potions.STRONG_LEAPING,
+                    WaywardAlchemistItems.PHILOSOPHERS_ASH,
+                    EXTRA_STRONG_LEAPING_POTION
+            );
+            builder.registerPotionRecipe(
+                    Potions.STRONG_SWIFTNESS,
+                    WaywardAlchemistItems.PHILOSOPHERS_ASH,
+                    EXTRA_STRONG_SWIFTNESS_POTION
+            );
+            builder.registerPotionRecipe(
+                    Potions.STRONG_SLOWNESS,
+                    WaywardAlchemistItems.PHILOSOPHERS_ASH,
+                    EXTRA_STRONG_SLOWNESS_POTION
+            );
+            builder.registerPotionRecipe(
+                    Potions.STRONG_TURTLE_MASTER,
+                    WaywardAlchemistItems.PHILOSOPHERS_ASH,
+                    EXTRA_STRONG_TURTLE_MASTER_POTION
+            );
+            builder.registerPotionRecipe(
+                    Potions.STRONG_HEALING,
+                    WaywardAlchemistItems.PHILOSOPHERS_ASH,
+                    EXTRA_STRONG_HEALING_POTION
+            );
+            builder.registerPotionRecipe(
+                    Potions.STRONG_HARMING,
+                    WaywardAlchemistItems.PHILOSOPHERS_ASH,
+                    EXTRA_STRONG_HARMING_POTION
+            );
+            builder.registerPotionRecipe(
+                    Potions.STRONG_POISON,
+                    WaywardAlchemistItems.PHILOSOPHERS_ASH,
+                    EXTRA_STRONG_POISON_POTION
+            );
+            builder.registerPotionRecipe(
+                    Potions.STRONG_REGENERATION,
+                    WaywardAlchemistItems.PHILOSOPHERS_ASH,
+                    EXTRA_STRONG_REGENERATION_POTION
+            );
+            builder.registerPotionRecipe(
+                    Potions.STRONG_STRENGTH,
+                    WaywardAlchemistItems.PHILOSOPHERS_ASH,
+                    EXTRA_STRONG_STRENGTH_POTION
+            );
+            builder.registerPotionRecipe(
+                    STRONG_ABSORPTION_POTION,
+                    WaywardAlchemistItems.PHILOSOPHERS_ASH,
+                    EXTRA_STRONG_ABSORPTION_POTION
+            );
+            builder.registerPotionRecipe(
+                    STRONG_MINING_FATIGUE_POTION,
+                    WaywardAlchemistItems.PHILOSOPHERS_ASH,
+                    EXTRA_STRONG_MINING_FATIGUE_POTION
+            );
+            builder.registerPotionRecipe(
+                    STRONG_HASTE_POTION,
+                    WaywardAlchemistItems.PHILOSOPHERS_ASH,
+                    EXTRA_STRONG_HASTE_POTION
             );
         });
     }

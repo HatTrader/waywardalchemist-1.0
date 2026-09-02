@@ -1,4 +1,4 @@
-package hat.waywardalchemist.items;
+package hat.waywardalchemist.items.custom;
 
 import net.minecraft.block.*;
 import net.minecraft.entity.Entity;

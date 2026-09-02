@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "waywardalchemist:item/citrinas_2"
+  }
+}

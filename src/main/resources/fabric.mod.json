@@ -23,7 +23,10 @@
 		],
 		"client": [
 			"hat.waywardalchemist.WaywardAlchemistClient"
-		]
+		],
+        "jei_mod_plugin": [
+          "hat.waywardalchemist.items.JeiBullshit"
+        ]
 	},
 	"mixins": [
 		"waywardalchemist.mixins.json"

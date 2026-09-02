@@ -2,12 +2,18 @@
   "item.waywardalchemist.boiling_brewer_block": "Boiling Brewer",
   "item.waywardalchemist.sweet_treat": "Sweet Treat",
   "item.waywardalchemist.alchemist_fire": "Alchemist's Fire",
+  "item.waywardalchemist.putredo": "Putredo",
+  "item.waywardalchemist.albedo": "Albedo",
+  "item.waywardalchemist.citrinas": "Citrinas",
+  "item.waywardalchemist.philosophers_ash": "Philosopher's Ash",
 
   "block.waywardalchemist.boiling_brewer_block": "Boiling Brewer",
 
   "effect.waywardalchemist.flammability": "Flammability",
   "effect.waywardalchemist.vulnerability": "Vulnerability",
   "effect.waywardalchemist.construction": "Construction",
+
+  "tooltip.waywardalchemist.vitriol": "Vitriols collected: ",
 
   "item.waywardalchemist.injection_potion.effect.water": "Water Syringe",
   "item.waywardalchemist.injection_potion.effect.mundane": "Mundane Syringe",
@@ -66,5 +72,10 @@
   "item.minecraft.tipped_arrow.effect.absorption": "Arrow of Absorption",
   "item.minecraft.tipped_arrow.effect.construction": "Arrow of Construction",
   "item.minecraft.tipped_arrow.effect.mining_fatigue": "Arrow of Mining Fatigue",
-  "item.minecraft.tipped_arrow.effect.haste": "Arrow of Tunneling"
+  "item.minecraft.tipped_arrow.effect.haste": "Arrow of Tunneling",
+
+  "cipher.waywardalchemist.putredo": "§8Trivvlscwx uidhw vnk hr bdn wzi...",
+  "cipher.waywardalchemist.albedo": "§fDcpaq hhp qmuotp't klzdpe ibs...",
+  "cipher.waywardalchemist.citrinas": "§6Iqov nbuj xqvkqzs kquxkpvny nwlk...",
+  "cipher.waywardalchemist.rubedo": "§4Zm frowxbuiqavhu arfkb ulh qfmu?"
 }

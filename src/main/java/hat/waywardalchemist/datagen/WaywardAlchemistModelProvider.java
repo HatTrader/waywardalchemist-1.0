@@ -26,6 +26,9 @@ public class WaywardAlchemistModelProvider extends FabricModelProvider {
         itemModelGenerator.register(WaywardAlchemistItems.SWEET_TREAT, Models.GENERATED);
         itemModelGenerator.register(WaywardAlchemistItems.ALCHEMIST_FIRE, Models.GENERATED);
         itemModelGenerator.register(WaywardAlchemistBlocks.BOILING_BREWER_BLOCK.asItem(), Models.GENERATED);
+        itemModelGenerator.register(WaywardAlchemistItems.PHILOSOPHERS_ASH, Models.GENERATED);
+        itemModelGenerator.register(WaywardAlchemistItems.PUTREDO, Models.GENERATED);
+        itemModelGenerator.register(WaywardAlchemistItems.ALBEDO, Models.GENERATED);
         itemModelGenerator.registerPotionTinted(WaywardAlchemistItems.INJECTION_POTION, Identifier.of(WaywardAlchemist.MOD_ID, "injection_potion"));
     }
 }

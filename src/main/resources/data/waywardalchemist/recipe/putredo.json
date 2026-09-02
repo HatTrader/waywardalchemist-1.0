@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:fermented_spider_eye",
+    "minecraft:glowstone_dust",
+    "minecraft:netherite_scrap",
+    "minecraft:netherite_scrap",
+    "minecraft:wither_rose"
+  ],
+  "result": {
+    "id": "waywardalchemist:putredo",
+    "count": 1
+  }
+}

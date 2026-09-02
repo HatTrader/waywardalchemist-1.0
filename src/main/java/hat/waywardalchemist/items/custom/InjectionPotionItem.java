@@ -1,6 +1,5 @@
-package hat.waywardalchemist.items;
+package hat.waywardalchemist.items.custom;
 
-import hat.waywardalchemist.WaywardAlchemist;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.PotionContentsComponent;
 import net.minecraft.entity.LivingEntity;
@@ -8,12 +7,9 @@ import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.item.PotionItem;
-import net.minecraft.potion.Potions;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 
 public class InjectionPotionItem extends PotionItem {
