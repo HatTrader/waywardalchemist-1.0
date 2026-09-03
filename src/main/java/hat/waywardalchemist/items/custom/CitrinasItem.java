@@ -1,35 +1,32 @@
 package hat.waywardalchemist.items.custom;
 
-import com.mojang.serialization.Codec;
 import hat.waywardalchemist.WaywardAlchemist;
 import hat.waywardalchemist.items.WaywardAlchemistItems;
 import hat.waywardalchemist.particle.WaywardAlchemistParticles;
-import hat.waywardalchemist.particle.factory.ShockwaveParticle;
-import net.minecraft.block.AmethystBlock;
-import net.minecraft.block.AmethystClusterBlock;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.RedstoneBlock;
-import net.minecraft.component.*;
 import net.minecraft.component.type.TooltipDisplayComponent;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.projectile.ProjectileUtil;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.item.tooltip.TooltipType;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
+import net.minecraft.util.hit.EntityHitResult;
+import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.world.PersistentState;
 import net.minecraft.world.World;
+import org.jspecify.annotations.Nullable;
 
-import java.util.List;
-import java.util.UUID;
 import java.util.function.Consumer;
 
 public class CitrinasItem extends Item {
@@ -73,5 +70,24 @@ public class CitrinasItem extends Item {
         } else {
             textConsumer.accept(Text.literal("§6Vitriols Harvested: " + count));
         }
+    }
+
+    @Override
+    public void inventoryTick(ItemStack stack, ServerWorld world, Entity entity, @Nullable EquipmentSlot slot) {
+        if (entity instanceof PlayerEntity player && player.getMainHandStack() == stack) {
+            HitResult hitResult = ProjectileUtil.getCollision(entity, entity1 -> {
+                EvilStateOfDoomAndDespair stateOfDoomAndDespair = EvilStateOfDoomAndDespair.getHarvestedPlayers(world.getServer());
+                if (entity1 instanceof PlayerEntity playerEntity && !stateOfDoomAndDespair.getHarvestedPlayers().contains(playerEntity.getUuid())) {
+                    return true;
+                }
+                return false;
+            }, 32);
+            if (hitResult instanceof EntityHitResult e) {
+                if (stack.getOrDefault(WaywardAlchemistItemComponents.PROGRESS, 0) != 4) {
+                    player.sendMessage(Text.of("§6This one remains vitriolic..."), true);
+                }
+            }
+        }
+        super.inventoryTick(stack, world, entity, slot);
     }
 }

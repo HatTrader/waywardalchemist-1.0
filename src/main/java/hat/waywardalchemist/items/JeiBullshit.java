@@ -32,6 +32,7 @@ public class JeiBullshit implements IModPlugin {
         IIngredientManager ingredientManager = jeiRuntime.getIngredientManager();
         Collection<ItemStack> stacksToHide = new ArrayList<>();
         stacksToHide.add(WaywardAlchemistItems.PHILOSOPHERS_ASH.getDefaultStack());
+        stacksToHide.add(WaywardAlchemistItems.CITRINAS.getDefaultStack());
         ingredientManager.removeIngredientsAtRuntime(VanillaTypes.ITEM_STACK, stacksToHide);
         IModPlugin.super.onRuntimeAvailable(jeiRuntime);
     }

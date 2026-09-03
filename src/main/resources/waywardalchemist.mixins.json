@@ -3,6 +3,7 @@
   "package": "hat.waywardalchemist.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "DeathMessageMixin",
     "LivingEntityMixin",
     "PlayerEntityMixin",
     "PotionItemMixin"

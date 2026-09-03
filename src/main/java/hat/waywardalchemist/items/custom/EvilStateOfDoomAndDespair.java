@@ -45,7 +45,7 @@ public class EvilStateOfDoomAndDespair extends PersistentState {
             null
     );
 
-    public static EvilStateOfDoomAndDespair getSavedBlockData(MinecraftServer server) {
+    public static EvilStateOfDoomAndDespair getHarvestedPlayers(MinecraftServer server) {
         ServerWorld world = server.getWorld(ServerWorld.OVERWORLD);
 
         if (world == null) {

@@ -41,10 +41,10 @@ public class WaywardAlchemistItems {
     public static Item SWEET_TREAT = register("sweet_treat", Item::new, new Item.Settings().food(new FoodComponent(2,0.6f,false), WaywardAlchemistConsumableComponents.SWEET_TREAT));
     public static Item ALCHEMIST_FIRE = register("alchemist_fire", AlchemistFireItem::new, new Item.Settings().maxCount(64));
     public static Item INJECTION_POTION = register("injection_potion", InjectionPotionItem::new, new Item.Settings().maxCount(1));
-    public static Item PUTREDO = register("putredo", Item::new, new Item.Settings().maxCount(16));
-    public static Item CITRINAS = register("citrinas", CitrinasItem::new, new Item.Settings().maxCount(1).sword(ToolMaterial.NETHERITE, 1, -2.4f).component(WaywardAlchemistItemComponents.PROGRESS, 0));
+    public static Item PUTREDO = register("putredo", Item::new, new Item.Settings().maxCount(1));
+    public static Item CITRINAS = register("citrinas", CitrinasItem::new, new Item.Settings().maxCount(1).sword(ToolMaterial.NETHERITE, 2, -2.4f).component(WaywardAlchemistItemComponents.PROGRESS, 0));
     public static Item PHILOSOPHERS_ASH = register("philosophers_ash", Item::new, new Item.Settings().maxCount(16));
-    public static Item ALBEDO = register("albedo", AlbedoItem::new, new Item.Settings().maxCount(16));
+    public static Item ALBEDO = register("albedo", AlbedoItem::new, new Item.Settings().maxCount(1));
 
 
     public static Item register(String name, Function<Item.Settings, Item> itemFactory, Item.Settings settings) {
@@ -65,13 +65,9 @@ public class WaywardAlchemistItems {
         });
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(fabricItemGroupEntries -> {
             fabricItemGroupEntries.add(ALCHEMIST_FIRE);
-            fabricItemGroupEntries.add(PUTREDO);
-            fabricItemGroupEntries.add(ALBEDO);
-            fabricItemGroupEntries.add(PHILOSOPHERS_ASH);
+            fabricItemGroupEntries.addAfter(Items.GLASS_BOTTLE, ALBEDO);
+            fabricItemGroupEntries.addAfter(Items.GLASS_BOTTLE, PUTREDO);
         } );
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(fabricItemGroupEntries -> {
-            fabricItemGroupEntries.addAfter(Items.SHIELD, CITRINAS);
-        });
     }
 
     private static void addPotions(ItemGroup.Entries entries, RegistryWrapper<Potion> registryWrapper, Item item, ItemGroup.StackVisibility visibility, FeatureSet enabledFeatures) {
