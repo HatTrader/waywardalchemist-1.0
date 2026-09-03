@@ -14,6 +14,8 @@ import net.minecraft.registry.Registry;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.util.Identifier;
 
+import java.util.List;
+
 
 public class WaywardAlchemistPotions {
 
@@ -149,6 +151,27 @@ public class WaywardAlchemistPotions {
                     Identifier.of(WaywardAlchemist.MOD_ID, "extra_strong_haste"),
                     new Potion("haste", new StatusEffectInstance(StatusEffects.HASTE, 3600, 2), new StatusEffectInstance(StatusEffects.WEAKNESS, 1800, 2)));
 
+    public static final RegistryEntry<Potion> TRANSMUTATON_POTION =
+            Registry.registerReference(
+                    Registries.POTION,
+                    Identifier.of(WaywardAlchemist.MOD_ID, "transmutation"),
+                    new Potion("transmutation", new StatusEffectInstance(WaywardAlchemistEffects.TRANSMUTATION, 1, 0)));
+
+    private static final List<RegistryEntry<Potion>> extraStrongs = List.of(
+            WaywardAlchemistPotions.EXTRA_STRONG_ABSORPTION_POTION,
+            WaywardAlchemistPotions.EXTRA_STRONG_HARMING_POTION,
+            WaywardAlchemistPotions.EXTRA_STRONG_HASTE_POTION,
+            WaywardAlchemistPotions.EXTRA_STRONG_HEALING_POTION,
+            WaywardAlchemistPotions.EXTRA_STRONG_LEAPING_POTION,
+            WaywardAlchemistPotions.EXTRA_STRONG_MINING_FATIGUE_POTION,
+            WaywardAlchemistPotions.EXTRA_STRONG_POISON_POTION,
+            WaywardAlchemistPotions.EXTRA_STRONG_REGENERATION_POTION,
+            WaywardAlchemistPotions.EXTRA_STRONG_SLOWNESS_POTION,
+            WaywardAlchemistPotions.EXTRA_STRONG_STRENGTH_POTION,
+            WaywardAlchemistPotions.EXTRA_STRONG_SWIFTNESS_POTION,
+            WaywardAlchemistPotions.EXTRA_STRONG_TURTLE_MASTER_POTION
+    );
+
     public static void registerPotions() {
         // Basic Potion Recipes
         FabricBrewingRecipeRegistryBuilder.BUILD.register(builder -> {
@@ -273,6 +296,11 @@ public class WaywardAlchemistPotions {
                     STRONG_HASTE_POTION,
                     WaywardAlchemistItems.PHILOSOPHERS_ASH,
                     EXTRA_STRONG_HASTE_POTION
+            );
+            builder.registerPotionRecipe(
+                    Potions.MUNDANE,
+                    WaywardAlchemistItems.ALBEDO,
+                    TRANSMUTATON_POTION
             );
         });
     }

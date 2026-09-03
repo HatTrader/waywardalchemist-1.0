@@ -12,8 +12,7 @@
   "effect.waywardalchemist.flammability": "Flammability",
   "effect.waywardalchemist.vulnerability": "Vulnerability",
   "effect.waywardalchemist.construction": "Construction",
-
-  "tooltip.waywardalchemist.vitriol": "Vitriols collected: ",
+  "effect.waywardalchemist.transmutation": "Lesser Transmutation",
 
   "item.waywardalchemist.injection_potion.effect.water": "Water Syringe",
   "item.waywardalchemist.injection_potion.effect.mundane": "Mundane Syringe",
@@ -45,6 +44,7 @@
   "item.waywardalchemist.injection_potion.effect.Construction": "Syringe of Construction",
   "item.waywardalchemist.injection_potion.effect.mining_fatigue": "Syringe of Mining Fatigue",
   "item.waywardalchemist.injection_potion.effect.haste": "Syringe of Tunneling",
+  "item.waywardalchemist.injection_potion.effect.transmutation": "Syringe of Lesser Transmutation",
 
   "item.minecraft.splash_potion.effect.flammability": "Splash Potion of Flammability",
   "item.minecraft.splash_potion.effect.vulnerability": "Splash Potion of Vulnerability",
@@ -52,6 +52,7 @@
   "item.minecraft.splash_potion.effect.construction": "Splash Potion of Construction",
   "item.minecraft.splash_potion.effect.mining_fatigue": "Splash Potion of Mining Fatigue",
   "item.minecraft.splash_potion.effect.haste": "Splash Potion of Tunneling",
+  "item.minecraft.splash_potion.effect.transmutation": "Splash Potion of Lesser Transmutation",
 
   "item.minecraft.lingering_potion.effect.flammability": "Lingering Potion of Flammability",
   "item.minecraft.lingering_potion.effect.vulnerability": "Lingering Potion of Vulnerability",
@@ -59,6 +60,7 @@
   "item.minecraft.lingering_potion.effect.construction": "Lingering Potion of Construction",
   "item.minecraft.lingering_potion.effect.mining_fatigue": "Lingering Potion of Mining Fatigue",
   "item.minecraft.lingering_potion.effect.haste": "Lingering Potion of Tunneling",
+  "item.minecraft.lingering_potion.effect.transmutation": "Lingering Potion of Lesser Transmutation",
 
   "item.minecraft.potion.effect.flammability": "Potion of Flammability",
   "item.minecraft.potion.effect.vulnerability": "Potion of Vulnerability",
@@ -66,6 +68,7 @@
   "item.minecraft.potion.effect.construction": "Potion of Construction",
   "item.minecraft.potion.effect.mining_fatigue": "Potion of Mining Fatigue",
   "item.minecraft.potion.effect.haste": "Potion of Tunneling",
+  "item.minecraft.potion.effect.transmutation": "Potion of Lesser Transmutation",
 
   "item.minecraft.tipped_arrow.effect.flammability": "Arrow of Flammability",
   "item.minecraft.tipped_arrow.effect.vulnerability": "Arrow of Vulnerability",
@@ -73,6 +76,7 @@
   "item.minecraft.tipped_arrow.effect.construction": "Arrow of Construction",
   "item.minecraft.tipped_arrow.effect.mining_fatigue": "Arrow of Mining Fatigue",
   "item.minecraft.tipped_arrow.effect.haste": "Arrow of Tunneling",
+  "item.minecraft.tipped_arrow.effect.transmutation": "Arrow of Lesser Transmutation",
 
   "cipher.waywardalchemist.putredo": "§8Trivvlscwx uidhw vnk hr bdn wzi...",
   "cipher.waywardalchemist.albedo": "§fDcpaq hhp qmuotp't klzdpe ibs...",

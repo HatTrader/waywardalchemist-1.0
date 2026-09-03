@@ -2,6 +2,7 @@ package hat.waywardalchemist;
 
 import hat.waywardalchemist.block.WaywardAlchemistBlocks;
 import hat.waywardalchemist.block.entity.WaywardAlchemistBlockEntities;
+import hat.waywardalchemist.effect.WaywardAlchemistEffects;
 import hat.waywardalchemist.items.WaywardAlchemistItems;
 import hat.waywardalchemist.items.custom.EvilStateOfDoomAndDespair;
 import hat.waywardalchemist.items.custom.WaywardAlchemistItemComponents;
@@ -41,6 +42,7 @@ public class WaywardAlchemist implements ModInitializer {
         WaywardAlchemistItemComponents.registerComponents();
 		WaywardAlchemistBlockEntities.registerWABlockEntities();
 		WaywardAlchemistScreenHandlers.registerWAScreenHandlers();
+        WaywardAlchemistEffects.init();
 		FuelRegistryEvents.BUILD.register(((builder, context) -> {builder.add(WaywardAlchemistItems.ALCHEMIST_FIRE, 320 * 20);}));
 		LOGGER.info("Hello alchemist!");
 

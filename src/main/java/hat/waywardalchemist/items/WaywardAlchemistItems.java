@@ -23,20 +23,7 @@ import java.util.function.Function;
 
 public class WaywardAlchemistItems {
 
-    private static final List<RegistryEntry<Potion>> extraStrongs = List.of(
-            WaywardAlchemistPotions.EXTRA_STRONG_ABSORPTION_POTION,
-            WaywardAlchemistPotions.EXTRA_STRONG_HARMING_POTION,
-            WaywardAlchemistPotions.EXTRA_STRONG_HASTE_POTION,
-            WaywardAlchemistPotions.EXTRA_STRONG_HEALING_POTION,
-            WaywardAlchemistPotions.EXTRA_STRONG_LEAPING_POTION,
-            WaywardAlchemistPotions.EXTRA_STRONG_MINING_FATIGUE_POTION,
-            WaywardAlchemistPotions.EXTRA_STRONG_POISON_POTION,
-            WaywardAlchemistPotions.EXTRA_STRONG_REGENERATION_POTION,
-            WaywardAlchemistPotions.EXTRA_STRONG_SLOWNESS_POTION,
-            WaywardAlchemistPotions.EXTRA_STRONG_STRENGTH_POTION,
-            WaywardAlchemistPotions.EXTRA_STRONG_SWIFTNESS_POTION,
-            WaywardAlchemistPotions.EXTRA_STRONG_TURTLE_MASTER_POTION
-    );
+
 
     public static Item SWEET_TREAT = register("sweet_treat", Item::new, new Item.Settings().food(new FoodComponent(2,0.6f,false), WaywardAlchemistConsumableComponents.SWEET_TREAT));
     public static Item ALCHEMIST_FIRE = register("alchemist_fire", AlchemistFireItem::new, new Item.Settings().maxCount(64));
@@ -64,7 +51,7 @@ public class WaywardAlchemistItems {
             });
         });
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(fabricItemGroupEntries -> {
-            fabricItemGroupEntries.add(ALCHEMIST_FIRE);
+            fabricItemGroupEntries.addAfter(Items.MAGMA_CREAM, ALCHEMIST_FIRE);
             fabricItemGroupEntries.addAfter(Items.GLASS_BOTTLE, ALBEDO);
             fabricItemGroupEntries.addAfter(Items.GLASS_BOTTLE, PUTREDO);
         } );
