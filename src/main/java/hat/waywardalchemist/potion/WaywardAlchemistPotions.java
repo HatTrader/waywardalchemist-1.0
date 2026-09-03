@@ -79,6 +79,18 @@ public class WaywardAlchemistPotions {
                     Identifier.of(WaywardAlchemist.MOD_ID, "strong_haste"),
                     new Potion("haste", new StatusEffectInstance(StatusEffects.HASTE, 3600, 1), new StatusEffectInstance(StatusEffects.WEAKNESS, 1800, 1)));
 
+    public static final RegistryEntry<Potion> OVERDOSE_POTION =
+            Registry.registerReference(
+                    Registries.POTION,
+                    Identifier.of(WaywardAlchemist.MOD_ID, "overdose"),
+                    new Potion("overdose", new StatusEffectInstance(WaywardAlchemistEffects.OVERDOSE, 450, 0)));
+
+    public static final RegistryEntry<Potion> LONG_OVERDOSE_POTION =
+            Registry.registerReference(
+                    Registries.POTION,
+                    Identifier.of(WaywardAlchemist.MOD_ID, "long_overdose"),
+                    new Potion("overdose", new StatusEffectInstance(WaywardAlchemistEffects.OVERDOSE, 900, 0)));
+
     public static final RegistryEntry<Potion> EXTRA_STRONG_LEAPING_POTION =
             Registry.registerReference(
                     Registries.POTION,
@@ -186,9 +198,19 @@ public class WaywardAlchemistPotions {
                     CONSTRUCTION_POTION
             );
             builder.registerPotionRecipe(
-                    Potions.AWKWARD,
-                    Items.BAMBOO,
-                    CONSTRUCTION_POTION
+                    Potions.POISON,
+                    WaywardAlchemistItems.PUTREDO,
+                    OVERDOSE_POTION
+            );
+            builder.registerPotionRecipe(
+                    OVERDOSE_POTION,
+                    Items.REDSTONE,
+                    LONG_OVERDOSE_POTION
+            );
+            builder.registerPotionRecipe(
+                    Potions.LONG_POISON,
+                    WaywardAlchemistItems.PUTREDO,
+                    LONG_OVERDOSE_POTION
             );
             builder.registerPotionRecipe(
                     Potions.THICK,

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:pitcher_plant",
+    "minecraft:blaze_powder",
+    "waywardalchemist:albedo"
+  ],
+  "result": {
+    "id": "waywardalchemist:pancea",
+    "count": 1
+  }
+}

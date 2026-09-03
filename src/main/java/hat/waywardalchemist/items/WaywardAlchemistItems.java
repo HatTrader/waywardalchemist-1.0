@@ -17,6 +17,7 @@ import net.minecraft.registry.*;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.resource.featuretoggle.FeatureSet;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.Rarity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,9 +31,10 @@ public class WaywardAlchemistItems {
     public static Item ALCHEMIST_FIRE = register("alchemist_fire", AlchemistFireItem::new, new Item.Settings().maxCount(64));
     public static Item INJECTION_POTION = register("injection_potion", InjectionPotionItem::new, new Item.Settings().maxCount(1).component(DataComponentTypes.POTION_CONTENTS, PotionContentsComponent.DEFAULT).component(DataComponentTypes.POTION_DURATION_SCALE, 0.5F));
     public static Item PUTREDO = register("putredo", Item::new, new Item.Settings().maxCount(1));
-    public static Item CITRINAS = register("citrinas", CitrinasItem::new, new Item.Settings().maxCount(1).sword(ToolMaterial.NETHERITE, 2, -2.4f).component(WaywardAlchemistItemComponents.PROGRESS, 0));
-    public static Item PHILOSOPHERS_ASH = register("philosophers_ash", Item::new, new Item.Settings().maxCount(16));
+    public static Item CITRINAS = register("citrinas", CitrinasItem::new, new Item.Settings().maxCount(1).sword(ToolMaterial.NETHERITE, 2, -2.4f).component(WaywardAlchemistItemComponents.PROGRESS, 0).rarity(Rarity.RARE));
+    public static Item PHILOSOPHERS_ASH = register("philosophers_ash", Item::new, new Item.Settings().maxCount(16).rarity(Rarity.EPIC));
     public static Item ALBEDO = register("albedo", AlbedoItem::new, new Item.Settings().maxCount(1));
+    public static Item PANCEA = register("pancea", Item::new, new Item.Settings().food(new FoodComponent(0,0,true), WaywardAlchemistConsumableComponents.PANCEA).useCooldown(10).maxCount(4));
 
 
     public static Item register(String name, Function<Item.Settings, Item> itemFactory, Item.Settings settings) {
@@ -47,6 +49,7 @@ public class WaywardAlchemistItems {
         //put items in creative menu below
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register(fabricItemGroupEntries -> {
             fabricItemGroupEntries.add(SWEET_TREAT);
+            fabricItemGroupEntries.add(PANCEA);
             fabricItemGroupEntries.getContext().lookup().getOptional(RegistryKeys.POTION).ifPresent((registryWrapper) -> {
                 addPotions(fabricItemGroupEntries, registryWrapper, INJECTION_POTION, ItemGroup.StackVisibility.PARENT_AND_SEARCH_TABS, fabricItemGroupEntries.getContext().enabledFeatures());
             });
