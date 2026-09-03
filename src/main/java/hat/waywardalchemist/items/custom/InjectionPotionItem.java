@@ -8,6 +8,7 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.PotionItem;
+import net.minecraft.potion.Potions;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
@@ -15,6 +16,13 @@ import net.minecraft.sound.SoundEvents;
 public class InjectionPotionItem extends PotionItem {
     public InjectionPotionItem(Settings settings) {
         super(settings);
+    }
+
+    @Override
+    public ItemStack getDefaultStack() {
+        ItemStack itemStack = super.getDefaultStack();
+        itemStack.set(DataComponentTypes.POTION_CONTENTS, new PotionContentsComponent(Potions.WATER));
+        return super.getDefaultStack();
     }
 
     @Override

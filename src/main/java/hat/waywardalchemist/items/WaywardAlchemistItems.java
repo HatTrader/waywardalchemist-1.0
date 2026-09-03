@@ -8,6 +8,7 @@ import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.helpers.IJeiHelpers;
 import mezz.jei.api.runtime.IIngredientManager;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.FoodComponent;
 import net.minecraft.component.type.PotionContentsComponent;
 import net.minecraft.item.*;
@@ -27,7 +28,7 @@ public class WaywardAlchemistItems {
 
     public static Item SWEET_TREAT = register("sweet_treat", Item::new, new Item.Settings().food(new FoodComponent(2,0.6f,false), WaywardAlchemistConsumableComponents.SWEET_TREAT));
     public static Item ALCHEMIST_FIRE = register("alchemist_fire", AlchemistFireItem::new, new Item.Settings().maxCount(64));
-    public static Item INJECTION_POTION = register("injection_potion", InjectionPotionItem::new, new Item.Settings().maxCount(1));
+    public static Item INJECTION_POTION = register("injection_potion", InjectionPotionItem::new, new Item.Settings().maxCount(1).component(DataComponentTypes.POTION_CONTENTS, PotionContentsComponent.DEFAULT).component(DataComponentTypes.POTION_DURATION_SCALE, 0.5F));
     public static Item PUTREDO = register("putredo", Item::new, new Item.Settings().maxCount(1));
     public static Item CITRINAS = register("citrinas", CitrinasItem::new, new Item.Settings().maxCount(1).sword(ToolMaterial.NETHERITE, 2, -2.4f).component(WaywardAlchemistItemComponents.PROGRESS, 0));
     public static Item PHILOSOPHERS_ASH = register("philosophers_ash", Item::new, new Item.Settings().maxCount(16));

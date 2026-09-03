@@ -25,7 +25,7 @@ public class ShockwaveParticle extends BillboardParticle {
         this.velocityY = VY;
         this.velocityX = 0;
         this.velocityZ = 0;
-        this.setColor(1.0f, 0.27450980392156865f, 0.15294117647058825f);
+        this.setColor(0.9621f, 0.27450980392156865f, 0.15294117647058825f);
     }
 
     @Override
@@ -39,7 +39,7 @@ public class ShockwaveParticle extends BillboardParticle {
             markDead();
         } else {
             scale(1.05f);
-            setAlpha(alpha-0.01f);
+            setAlpha(alpha-0.006f);
         }
         super.tick();
     }

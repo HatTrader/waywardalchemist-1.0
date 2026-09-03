@@ -49,11 +49,9 @@ public class CitrinasItem extends Item {
             if (world.getBlockState(pos).getBlock() == Blocks.ANCIENT_DEBRIS) {
                 world.breakBlock(pos, false);
                 Vec3d pos2 = pos.toCenterPos();
-                if (world.isClient()) {
-                    for (PlayerEntity player : world.getPlayers()) {
-                        world.playSoundFromEntityClient(player, WaywardAlchemist.CREATION, SoundCategory.PLAYERS, 0.6f, 1.0f);
-                    }
-                    world.addParticleClient(WaywardAlchemistParticles.SHOCKWAVE_PARTICLE, pos2.x, pos2.y, pos2.z, 0, 0.05, 0);
+                world.playSound(null, pos, WaywardAlchemist.CREATION, SoundCategory.PLAYERS, 0.6f, 1.0f);
+                if (world instanceof ServerWorld world1){
+                    world1.spawnParticles(WaywardAlchemistParticles.SHOCKWAVE_PARTICLE, pos2.x, pos2.y, pos2.z, 1, 0, 0, 0, 0);
                 }
                 context.getStack().decrement(1);
                 world.spawnEntity(new ItemEntity(world, pos2.x, pos2.y, pos2.z, new ItemStack(WaywardAlchemistItems.PHILOSOPHERS_ASH, 3)));
