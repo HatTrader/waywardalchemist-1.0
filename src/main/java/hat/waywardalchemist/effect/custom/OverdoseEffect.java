@@ -20,6 +20,9 @@ public class OverdoseEffect extends StatusEffect {
                 } else
                 if (entity.getStatusEffects().size() < 5.0f) {
                     entity.damage(world, entity.getDamageSources().magic(), 4.0F);
+                } else
+                if (entity.getStatusEffects().size() > 4.0f) {
+                    entity.damage(world, entity.getDamageSources().magic(), 4.0F);
                 }
 
         return true;
