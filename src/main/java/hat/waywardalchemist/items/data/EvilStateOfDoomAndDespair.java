@@ -1,4 +1,4 @@
-package hat.waywardalchemist.items.custom;
+package hat.waywardalchemist.items.data;
 
 import com.mojang.serialization.Codec;
 import net.minecraft.entity.player.PlayerEntity;

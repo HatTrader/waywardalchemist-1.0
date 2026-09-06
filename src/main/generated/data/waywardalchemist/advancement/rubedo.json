@@ -1,0 +1,32 @@
+{
+  "parent": "waywardalchemist:putredo",
+  "criteria": {
+    "made_philosophers_ash": {
+      "conditions": {
+        "items": [
+          {
+            "items": "waywardalchemist:philosophers_ash"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
+    "description": "§4Zm frowxbuiqavhu arfkb ulh qfmu?",
+    "frame": "challenge",
+    "hidden": true,
+    "icon": {
+      "count": 1,
+      "id": "waywardalchemist:philosophers_ash"
+    },
+    "title": "The Incomplete Opus"
+  },
+  "requirements": [
+    [
+      "made_philosophers_ash"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

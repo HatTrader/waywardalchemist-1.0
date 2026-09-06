@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:nether/brew_potion",
+  "criteria": {
+    "got_putredo": {
+      "conditions": {
+        "items": [
+          {
+            "items": "waywardalchemist:putredo"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
+    "description": "§8Trivvlscwx uidhw vnk hr bdn wzi... §fDcpaq hhp qmuotp't klzdpe ibs... §6Iqov nbuj xqvkqzs kquxkpvny nwlk...",
+    "frame": "goal",
+    "hidden": true,
+    "icon": {
+      "count": 1,
+      "id": "waywardalchemist:putredo"
+    },
+    "title": "The First Step"
+  },
+  "requirements": [
+    [
+      "got_putredo"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

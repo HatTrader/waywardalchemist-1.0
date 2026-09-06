@@ -4,10 +4,11 @@
   "ingredients": [
     "minecraft:pitcher_plant",
     "minecraft:blaze_powder",
+    "minecraft:blaze_powder",
     "waywardalchemist:albedo"
   ],
   "result": {
     "id": "waywardalchemist:pancea",
-    "count": 1
+    "count": 4
   }
 }

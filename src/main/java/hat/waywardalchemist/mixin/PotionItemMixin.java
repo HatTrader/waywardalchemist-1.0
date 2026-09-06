@@ -1,11 +1,8 @@
 package hat.waywardalchemist.mixin;
 
 
-import hat.waywardalchemist.WaywardAlchemist;
-import hat.waywardalchemist.effect.WaywardAlchemistEffects;
 import hat.waywardalchemist.potion.WaywardAlchemistPotions;
-import hat.waywardalchemist.util.TransmutationUtils;
-import net.minecraft.block.Block;
+import hat.waywardalchemist.util.WaywardAlchemistLists;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.Oxidizable;
@@ -27,12 +24,10 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import java.util.List;
-
 @Mixin(PotionItem.class)
 public class PotionItemMixin {
     @Inject(at = @At("TAIL"), method = "useOnBlock", cancellable = true)
-    private static void thinga(ItemUsageContext context, CallbackInfoReturnable<ActionResult> cir) {
+    private static void waywardAlchemist$modifyPotionUses(ItemUsageContext context, CallbackInfoReturnable<ActionResult> cir) {
         World world = context.getWorld();
         BlockPos blockPos = context.getBlockPos();
         PlayerEntity playerEntity = context.getPlayer();
@@ -53,13 +48,13 @@ public class PotionItemMixin {
             cir.setReturnValue(ActionResult.PASS);
         }
         if (context.getSide() != Direction.DOWN && potionContentsComponent.matches(WaywardAlchemistPotions.TRANSMUTATON_POTION)) {
-            if (TransmutationUtils.transmutationChainOreBlocks.contains(blockState.getBlock())) {
-                for (int i = 0; i < TransmutationUtils.transmutationChainOreBlocks.size(); i++) {
+            if (WaywardAlchemistLists.transmutationChainOreBlocks.contains(blockState.getBlock())) {
+                for (int i = 0; i < WaywardAlchemistLists.transmutationChainOreBlocks.size(); i++) {
                     if (world.getBlockState(blockPos).getBlock() == Blocks.COAL_BLOCK) {
                         cir.setReturnValue(ActionResult.PASS);
-                    } else if (world.getBlockState(blockPos).getBlock() == TransmutationUtils.transmutationChainOreBlocks.reversed().get(i)) {
+                    } else if (world.getBlockState(blockPos).getBlock() == WaywardAlchemistLists.transmutationChainOreBlocks.reversed().get(i)) {
                         if (!world.isClient()) {
-                            world.setBlockState(blockPos, TransmutationUtils.transmutationChainOreBlocks.reversed().get(i + 1).getDefaultState());
+                            world.setBlockState(blockPos, WaywardAlchemistLists.transmutationChainOreBlocks.reversed().get(i + 1).getDefaultState());
                             playerEntity.setStackInHand(context.getHand(), ItemUsage.exchangeStack(itemStack, playerEntity, new ItemStack(Items.GLASS_BOTTLE)));
                             world.playSound((Entity) null, blockPos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0F, 1.0F);
                             world.emitGameEvent((Entity) null, GameEvent.FLUID_PLACE, blockPos);
@@ -68,13 +63,13 @@ public class PotionItemMixin {
                         break;
                     }
                 }
-            } else if (TransmutationUtils.transmutationChainWoodSaplings.contains(blockState.getBlock())) {
-                for (int i = 0; i < TransmutationUtils.transmutationChainWoodSaplings.size(); i++) {
+            } else if (WaywardAlchemistLists.transmutationChainWoodSaplings.contains(blockState.getBlock())) {
+                for (int i = 0; i < WaywardAlchemistLists.transmutationChainWoodSaplings.size(); i++) {
                     if (world.getBlockState(blockPos).getBlock() == Blocks.COAL_BLOCK) {
                         cir.setReturnValue(ActionResult.PASS);
-                    } else if (world.getBlockState(blockPos).getBlock() == TransmutationUtils.transmutationChainWoodSaplings.reversed().get(i)) {
+                    } else if (world.getBlockState(blockPos).getBlock() == WaywardAlchemistLists.transmutationChainWoodSaplings.reversed().get(i)) {
                         if (!world.isClient()) {
-                            world.setBlockState(blockPos, TransmutationUtils.transmutationChainWoodSaplings.reversed().get(i + 1).getDefaultState());
+                            world.setBlockState(blockPos, WaywardAlchemistLists.transmutationChainWoodSaplings.reversed().get(i + 1).getDefaultState());
                             playerEntity.setStackInHand(context.getHand(), ItemUsage.exchangeStack(itemStack, playerEntity, new ItemStack(Items.GLASS_BOTTLE)));
                             world.playSound((Entity) null, blockPos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0F, 1.0F);
                             world.emitGameEvent((Entity) null, GameEvent.FLUID_PLACE, blockPos);
@@ -84,6 +79,21 @@ public class PotionItemMixin {
                     }
                 }
             }
+        } else if (WaywardAlchemistLists.transmutationChainWoodLog.contains(blockState.getBlock())) {
+                for (int i = 0; i < WaywardAlchemistLists.transmutationChainWoodLog.size(); i++) {
+                    if (world.getBlockState(blockPos).getBlock() == Blocks.COAL_BLOCK) {
+                        cir.setReturnValue(ActionResult.PASS);
+                    } else if (world.getBlockState(blockPos).getBlock() == WaywardAlchemistLists.transmutationChainWoodLog.reversed().get(i)) {
+                        if (!world.isClient()) {
+                            world.setBlockState(blockPos, WaywardAlchemistLists.transmutationChainWoodLog.reversed().get(i + 1).getDefaultState());
+                            playerEntity.setStackInHand(context.getHand(), ItemUsage.exchangeStack(itemStack, playerEntity, new ItemStack(Items.GLASS_BOTTLE)));
+                            world.playSound((Entity) null, blockPos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0F, 1.0F);
+                            world.emitGameEvent((Entity) null, GameEvent.FLUID_PLACE, blockPos);
+                        }
+                        cir.setReturnValue(ActionResult.SUCCESS);
+                        break;
+                    }
+                }
         } else {
             cir.setReturnValue(ActionResult.PASS);
         }

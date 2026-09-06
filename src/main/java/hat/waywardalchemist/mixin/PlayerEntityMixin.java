@@ -1,7 +1,7 @@
 package hat.waywardalchemist.mixin;
 
 import hat.waywardalchemist.items.custom.CitrinasItem;
-import hat.waywardalchemist.items.custom.EvilStateOfDoomAndDespair;
+import hat.waywardalchemist.items.data.EvilStateOfDoomAndDespair;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(ServerPlayerEntity.class)
 public abstract class PlayerEntityMixin {
     @Inject(at = @At("HEAD"), method = "onDeath")
-    private void thinge(DamageSource damageSource, CallbackInfo ci) {
+    private void waywardAlchemist$harvestVitriol(DamageSource damageSource, CallbackInfo ci) {
         if ((LivingEntity) (Object) this instanceof PlayerEntity killed) {
             if (damageSource.getAttacker() != null && damageSource.getAttacker() instanceof PlayerEntity killer) {
                 if (killer.getStackInHand(killer.preferredHand).getItem() instanceof CitrinasItem citrinas) {

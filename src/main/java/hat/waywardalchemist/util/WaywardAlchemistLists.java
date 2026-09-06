@@ -1,11 +1,14 @@
 package hat.waywardalchemist.util;
 
 import hat.waywardalchemist.effect.WaywardAlchemistEffects;
+import hat.waywardalchemist.items.WaywardAlchemistItems;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -13,7 +16,7 @@ import net.minecraft.world.World;
 import java.util.List;
 import java.util.Map;
 
-public class TransmutationUtils {
+public class WaywardAlchemistLists {
     public static final Map<RegistryEntry<StatusEffect>, RegistryEntry<StatusEffect>> transmutedPositiveEffects = Map.of(
             StatusEffects.LUCK, StatusEffects.UNLUCK,
             StatusEffects.STRENGTH, StatusEffects.WEAKNESS,
@@ -72,7 +75,61 @@ public class TransmutationUtils {
             Blocks.SPRUCE_LOG
     );
 
-    public static void advanceTransmutationChain(World world, BlockPos pos) {
+    public static final List<Item> commonAlchemicalIngredients = List.of(
+            Items.NETHER_WART,
+            Items.GLOWSTONE_DUST,
+            Items.REDSTONE
+    );
 
+    public static final List<Item> uncommonAlchemicalIngredients = List.of(
+            Items.GUNPOWDER,
+            Items.FERMENTED_SPIDER_EYE,
+            Items.BLAZE_POWDER,
+            Items.SUGAR,
+            Items.GLISTERING_MELON_SLICE,
+            Items.SPIDER_EYE,
+            WaywardAlchemistItems.ALCHEMIST_FIRE,
+            Items.GOLDEN_CARROT
+    );
+
+    public static final List<Item> rareAlchemicalIngredients = List.of(
+            Items.DRAGON_BREATH,
+            Items.RABBIT_FOOT,
+            Items.PUFFERFISH,
+            Items.GHAST_TEAR,
+            Items.PHANTOM_MEMBRANE
+    );
+
+    public static final List<Item> epicAlchemicalIngredients = List.of(
+            Items.TURTLE_HELMET,
+            WaywardAlchemistItems.PANCEA
+    );
+
+    public static final List<Item> legendaryAlchemicalIngredients = List.of(
+            WaywardAlchemistItems.PHILOSOPHERS_ASH
+    );
+
+    public static final List<List<Item>> alchemicalIngredients = List.of(
+            commonAlchemicalIngredients,
+            uncommonAlchemicalIngredients,
+            rareAlchemicalIngredients,
+            epicAlchemicalIngredients,
+            legendaryAlchemicalIngredients
+            );
+
+    public static int getIngredientDurability(ItemStack stack) {
+        if (commonAlchemicalIngredients.contains(stack.getItem())) {
+            return 32;
+        } else if (uncommonAlchemicalIngredients.contains(stack.getItem())) {
+            return 16;
+        } else if (rareAlchemicalIngredients.contains(stack.getItem())) {
+            return 8;
+        } else if (epicAlchemicalIngredients.contains(stack.getItem())) {
+            return 4;
+        } else if (legendaryAlchemicalIngredients.contains(stack.getItem())) {
+            return 1;
+        } else {
+            return 0;
+        }
     }
 }

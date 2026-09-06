@@ -1,8 +1,6 @@
 package hat.waywardalchemist.effect.custom;
 
-import hat.waywardalchemist.WaywardAlchemist;
-import hat.waywardalchemist.effect.WaywardAlchemistEffects;
-import hat.waywardalchemist.util.TransmutationUtils;
+import hat.waywardalchemist.util.WaywardAlchemistLists;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
@@ -36,11 +34,11 @@ public class TransmutationEffect extends StatusEffect {
     }
 
     private static StatusEffectInstance transmuteEffect(StatusEffectInstance instance, LivingEntity entity) {
-        if (TransmutationUtils.transmutedPositiveEffects.containsKey(instance.getEffectType())) {
-            RegistryEntry<StatusEffect> transmutedEffect = TransmutationUtils.transmutedPositiveEffects.get(instance.getEffectType());
+        if (WaywardAlchemistLists.transmutedPositiveEffects.containsKey(instance.getEffectType())) {
+            RegistryEntry<StatusEffect> transmutedEffect = WaywardAlchemistLists.transmutedPositiveEffects.get(instance.getEffectType());
             return new StatusEffectInstance(transmutedEffect, instance.getDuration(), instance.getAmplifier());
-        } else if (TransmutationUtils.transmutedNegativeEffects.containsKey(instance.getEffectType())) {
-            RegistryEntry<StatusEffect> transmutedEffect = TransmutationUtils.transmutedNegativeEffects.get(instance.getEffectType());
+        } else if (WaywardAlchemistLists.transmutedNegativeEffects.containsKey(instance.getEffectType())) {
+            RegistryEntry<StatusEffect> transmutedEffect = WaywardAlchemistLists.transmutedNegativeEffects.get(instance.getEffectType());
             return new StatusEffectInstance(transmutedEffect, instance.getDuration(), 0);
         } else {
             return instance;

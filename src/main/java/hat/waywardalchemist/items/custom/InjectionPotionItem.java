@@ -1,5 +1,6 @@
 package hat.waywardalchemist.items.custom;
 
+import net.minecraft.client.render.item.model.special.SpecialModelRenderer;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.PotionContentsComponent;
 import net.minecraft.entity.LivingEntity;

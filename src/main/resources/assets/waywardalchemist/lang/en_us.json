@@ -66,6 +66,9 @@
   "item.minecraft.lingering_potion.effect.mining_fatigue": "Lingering Potion of Mining Fatigue",
   "item.minecraft.lingering_potion.effect.haste": "Lingering Potion of Tunneling",
   "item.minecraft.lingering_potion.effect.transmutation": "Lingering Potion of Lesser Transmutation",
+  "item.waywardalchemist.injection_potion.effect.obscurity": "Syringe of Obscurity",
+  "item.waywardalchemist.injection_potion.effect.frost_protection": "Syringe of Frost Protection",
+
 
   "item.minecraft.potion.effect.flammability": "Potion of Flammability",
   "item.minecraft.potion.effect.vulnerability": "Potion of Vulnerability",
@@ -84,6 +87,8 @@
   "item.minecraft.tipped_arrow.effect.mining_fatigue": "Arrow of Mining Fatigue",
   "item.minecraft.tipped_arrow.effect.haste": "Arrow of Tunneling",
   "item.minecraft.tipped_arrow.effect.transmutation": "Arrow of Lesser Transmutation",
+
+  "potion.potency.6": "VI",
 
   "cipher.waywardalchemist.putredo": "§8Trivvlscwx uidhw vnk hr bdn wzi...",
   "cipher.waywardalchemist.albedo": "§fDcpaq hhp qmuotp't klzdpe ibs...",

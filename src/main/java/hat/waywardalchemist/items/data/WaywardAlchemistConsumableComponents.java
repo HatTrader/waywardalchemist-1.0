@@ -1,4 +1,4 @@
-package hat.waywardalchemist.component;
+package hat.waywardalchemist.items.data;
 
 import net.minecraft.component.type.ConsumableComponent;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -24,6 +24,6 @@ public class WaywardAlchemistConsumableComponents {
             .consumeSeconds(0.2F)
             .finishSound(SoundEvents.ITEM_HONEY_BOTTLE_DRINK)
             .consumeEffect(ClearAllEffectsConsumeEffect.INSTANCE)
-            .consumeEffect(new ApplyEffectsConsumeEffect(List.of(new StatusEffectInstance(StatusEffects.REGENERATION, 100, 1)))).build();
+            .consumeEffect(new ApplyEffectsConsumeEffect(List.of(new StatusEffectInstance(StatusEffects.REGENERATION, 100, 0)))).build();
 }
 

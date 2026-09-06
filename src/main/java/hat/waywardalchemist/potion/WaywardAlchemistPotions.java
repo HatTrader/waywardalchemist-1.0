@@ -6,6 +6,7 @@ import hat.waywardalchemist.items.WaywardAlchemistItems;
 import net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistryBuilder;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.Potions;
@@ -91,23 +92,29 @@ public class WaywardAlchemistPotions {
                     Identifier.of(WaywardAlchemist.MOD_ID, "long_overdose"),
                     new Potion("overdose", new StatusEffectInstance(WaywardAlchemistEffects.OVERDOSE, 900, 0)));
 
+    public static final RegistryEntry<Potion> TRANSMUTATON_POTION =
+            Registry.registerReference(
+                    Registries.POTION,
+                    Identifier.of(WaywardAlchemist.MOD_ID, "transmutation"),
+                    new Potion("transmutation", new StatusEffectInstance(WaywardAlchemistEffects.TRANSMUTATION, 1, 0)));
+
     public static final RegistryEntry<Potion> EXTRA_STRONG_LEAPING_POTION =
             Registry.registerReference(
                     Registries.POTION,
                     Identifier.ofVanilla("extra_strong_leaping"),
-                    new Potion("leaping", new StatusEffectInstance(StatusEffects.JUMP_BOOST, 1800, 2)));
+                    new Potion("leaping", new StatusEffectInstance(StatusEffects.JUMP_BOOST, 1800, 3)));
 
     public static final RegistryEntry<Potion> EXTRA_STRONG_SWIFTNESS_POTION =
             Registry.registerReference(
                     Registries.POTION,
                     Identifier.ofVanilla("extra_strong_swiftness"),
-                    new Potion("swiftness", new StatusEffectInstance(StatusEffects.SPEED, 1800, 2)));
+                    new Potion("swiftness", new StatusEffectInstance(StatusEffects.SPEED, 1800, 3)));
 
     public static final RegistryEntry<Potion> EXTRA_STRONG_SLOWNESS_POTION =
             Registry.registerReference(
                     Registries.POTION,
                     Identifier.ofVanilla("extra_strong_slowness"),
-                    new Potion("slowness", new StatusEffectInstance(StatusEffects.SLOWNESS, 400, 5)));
+                    new Potion("slowness", new StatusEffectInstance(StatusEffects.SLOWNESS, 400, 6)));
 
     public static final RegistryEntry<Potion> EXTRA_STRONG_TURTLE_MASTER_POTION =
             Registry.registerReference(
@@ -119,7 +126,7 @@ public class WaywardAlchemistPotions {
             Registry.registerReference(
                     Registries.POTION,
                     Identifier.ofVanilla("extra_strong_healing"),
-                    new Potion("healing", new StatusEffectInstance(StatusEffects.INSTANT_HEALTH, 1, 2)));
+                    new Potion("healing", new StatusEffectInstance(StatusEffects.INSTANT_HEALTH, 1, 3)));
 
     public static final RegistryEntry<Potion> EXTRA_STRONG_HARMING_POTION =
             Registry.registerReference(
@@ -131,25 +138,25 @@ public class WaywardAlchemistPotions {
             Registry.registerReference(
                     Registries.POTION,
                     Identifier.ofVanilla("extra_strong_poison"),
-                    new Potion("poison", new StatusEffectInstance(StatusEffects.POISON, 420, 2)));
+                    new Potion("poison", new StatusEffectInstance(StatusEffects.POISON, 420, 3)));
 
     public static final RegistryEntry<Potion> EXTRA_STRONG_REGENERATION_POTION =
             Registry.registerReference(
                     Registries.POTION,
                     Identifier.ofVanilla("extra_strong_regeneration"),
-                    new Potion("regeneration", new StatusEffectInstance(StatusEffects.REGENERATION, 440, 2)));
+                    new Potion("regeneration", new StatusEffectInstance(StatusEffects.REGENERATION, 440, 3)));
 
     public static final RegistryEntry<Potion> EXTRA_STRONG_STRENGTH_POTION =
             Registry.registerReference(
                     Registries.POTION,
                     Identifier.ofVanilla("extra_strong_strength"),
-                    new Potion("strength", new StatusEffectInstance(StatusEffects.STRENGTH, 1800, 2)));
+                    new Potion("strength", new StatusEffectInstance(StatusEffects.STRENGTH, 1800, 3)));
 
     public static final RegistryEntry<Potion> EXTRA_STRONG_ABSORPTION_POTION =
             Registry.registerReference(
                     Registries.POTION,
                     Identifier.of(WaywardAlchemist.MOD_ID, "extra_strong_absorption"),
-                    new Potion("absorption", new StatusEffectInstance(StatusEffects.ABSORPTION, 1800, 2)));
+                    new Potion("absorption", new StatusEffectInstance(StatusEffects.ABSORPTION, 1800, 3)));
 
     public static final RegistryEntry<Potion> EXTRA_STRONG_MINING_FATIGUE_POTION =
             Registry.registerReference(
@@ -161,13 +168,8 @@ public class WaywardAlchemistPotions {
             Registry.registerReference(
                     Registries.POTION,
                     Identifier.of(WaywardAlchemist.MOD_ID, "extra_strong_haste"),
-                    new Potion("haste", new StatusEffectInstance(StatusEffects.HASTE, 3600, 2), new StatusEffectInstance(StatusEffects.WEAKNESS, 1800, 2)));
+                    new Potion("haste", new StatusEffectInstance(StatusEffects.HASTE, 3600, 3), new StatusEffectInstance(StatusEffects.WEAKNESS, 1800, 2)));
 
-    public static final RegistryEntry<Potion> TRANSMUTATON_POTION =
-            Registry.registerReference(
-                    Registries.POTION,
-                    Identifier.of(WaywardAlchemist.MOD_ID, "transmutation"),
-                    new Potion("transmutation", new StatusEffectInstance(WaywardAlchemistEffects.TRANSMUTATION, 1, 0)));
 
     private static final List<RegistryEntry<Potion>> extraStrongs = List.of(
             WaywardAlchemistPotions.EXTRA_STRONG_ABSORPTION_POTION,
@@ -321,7 +323,7 @@ public class WaywardAlchemistPotions {
             );
             builder.registerPotionRecipe(
                     Potions.MUNDANE,
-                    WaywardAlchemistItems.ALBEDO,
+                    WaywardAlchemistItems.PANCEA,
                     TRANSMUTATON_POTION
             );
         });

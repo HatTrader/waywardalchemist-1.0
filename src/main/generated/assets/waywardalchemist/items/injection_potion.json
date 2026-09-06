@@ -2,7 +2,6 @@
   "model": {
     "type": "minecraft:model",
     "model": "waywardalchemist:item/injection_potion",
-
     "tints": [
       {
         "type": "minecraft:potion",

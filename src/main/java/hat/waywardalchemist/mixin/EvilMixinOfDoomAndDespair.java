@@ -9,8 +9,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(Bootstrap.class)
 public class EvilMixinOfDoomAndDespair {
     @Inject(at = @At("HEAD"), method = "initialize", cancellable = true)
-    private static void yuh(CallbackInfo ci) {
-        if (Math.random() <= 0.1f) {
+    private static void fuckYou(CallbackInfo ci) {
+        if (Math.random() <= 0.05f) {
             ci.cancel();
         }
     }

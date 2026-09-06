@@ -3,6 +3,7 @@ package hat.waywardalchemist.block.entity;
 import java.util.Arrays;
 
 import hat.waywardalchemist.block.BoilingBrewerBlock;
+import hat.waywardalchemist.items.data.WaywardAlchemistItemComponents;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.LockableContainerBlockEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -178,7 +179,15 @@ public class BoilingBrewerBlockEntity extends LockableContainerBlockEntity imple
             slots.set(i, brewingRecipeRegistry.craft(itemStack, (ItemStack)slots.get(i)));
         }
 
-        itemStack.decrement(1);
+        if (itemStack.getOrDefault(WaywardAlchemistItemComponents.IS_PRIMAL, false)) {
+            if (itemStack.getDamage() >= itemStack.getMaxDamage()-1) {
+                itemStack.decrement(1);
+            } else {
+                itemStack.setDamage(itemStack.getDamage() + 1);
+            }
+        } else {
+            itemStack.decrement(1);
+        }
         ItemStack itemStack2 = itemStack.getItem().getRecipeRemainder();
         if (!itemStack2.isEmpty()) {
             if (itemStack.isEmpty()) {
