@@ -28,7 +28,7 @@ public class LivingEntityMixin {
         }
     }
 
-    @Inject(at = @At("TAIL"), method = "tryUseDeathProtector")
+    @Inject(at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;setHealth(F)V"), method = "tryUseDeathProtector")
     private void waywardAlchemist$purifyPutredo(DamageSource source, CallbackInfoReturnable<Boolean> cir) {
         if ((LivingEntity) (Object) this instanceof PlayerEntity killed) {
             for (ItemStack stack : killed.getInventory()) {

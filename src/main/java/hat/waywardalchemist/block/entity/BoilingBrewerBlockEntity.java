@@ -179,15 +179,7 @@ public class BoilingBrewerBlockEntity extends LockableContainerBlockEntity imple
             slots.set(i, brewingRecipeRegistry.craft(itemStack, (ItemStack)slots.get(i)));
         }
 
-        if (itemStack.getOrDefault(WaywardAlchemistItemComponents.IS_PRIMAL, false)) {
-            if (itemStack.getDamage() >= itemStack.getMaxDamage()-1) {
-                itemStack.decrement(1);
-            } else {
-                itemStack.setDamage(itemStack.getDamage() + 1);
-            }
-        } else {
-            itemStack.decrement(1);
-        }
+        itemStack.decrement(1);
         ItemStack itemStack2 = itemStack.getItem().getRecipeRemainder();
         if (!itemStack2.isEmpty()) {
             if (itemStack.isEmpty()) {

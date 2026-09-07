@@ -3,6 +3,7 @@ package hat.waywardalchemist;
 import hat.waywardalchemist.block.WaywardAlchemistBlocks;
 import hat.waywardalchemist.particle.WaywardAlchemistParticles;
 import hat.waywardalchemist.particle.factory.ShockwaveParticle;
+import hat.waywardalchemist.particle.factory.WheelParticle;
 import hat.waywardalchemist.screen.BoilingBrewerScreen;
 import hat.waywardalchemist.screen.WaywardAlchemistScreenHandlers;
 import net.fabricmc.api.ClientModInitializer;
@@ -16,6 +17,7 @@ public class WaywardAlchemistClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         ParticleFactoryRegistry.getInstance().register(WaywardAlchemistParticles.SHOCKWAVE_PARTICLE, ShockwaveParticle.Factory::new);
+        ParticleFactoryRegistry.getInstance().register(WaywardAlchemistParticles.WHEEL_PARTICLE, WheelParticle.Factory::new);
         HandledScreens.register(WaywardAlchemistScreenHandlers.BOILING_BREWER_SCREEN, BoilingBrewerScreen::new);
         BlockRenderLayerMap.putBlock(WaywardAlchemistBlocks.BOILING_BREWER_BLOCK, BlockRenderLayer.CUTOUT);
     }
