@@ -6,22 +6,22 @@ import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.server.world.ServerWorld;
 
 public class OverdoseEffect extends StatusEffect {
-    public OverdoseEffect() {super(StatusEffectCategory.HARMFUL, 0xffd4e7);}
+    public OverdoseEffect() {super(StatusEffectCategory.HARMFUL, 0x35165c);}
 
     public boolean applyUpdateEffect(ServerWorld world, LivingEntity entity, int amplifier) {
-        if (entity.getStatusEffects().size() < 2.0F) {
+        if (entity.getStatusEffects().size() < 4.0F) {
             entity.damage(world, entity.getDamageSources().magic(), 1.0F);
         } else
-            if (entity.getStatusEffects().size() < 3.0f) {
+            if (entity.getStatusEffects().size() < 5.0f) {
                 entity.damage(world, entity.getDamageSources().magic(), 2.0F);
             } else
-                if (entity.getStatusEffects().size() < 4.0f) {
+                if (entity.getStatusEffects().size() < 6.0f) {
                     entity.damage(world, entity.getDamageSources().magic(), 3.0F);
                 } else
-                if (entity.getStatusEffects().size() < 5.0f) {
+                if (entity.getStatusEffects().size() < 7.0f) {
                     entity.damage(world, entity.getDamageSources().magic(), 4.0F);
                 } else
-                if (entity.getStatusEffects().size() > 4.0f) {
+                if (entity.getStatusEffects().size() > 6.0f) {
                     entity.damage(world, entity.getDamageSources().magic(), 4.0F);
                 }
 

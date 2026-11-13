@@ -72,13 +72,43 @@ public class WaywardAlchemistPotions {
             Registry.registerReference(
                     Registries.POTION,
                     Identifier.of(WaywardAlchemist.MOD_ID, "haste"),
-                    new Potion("haste", new StatusEffectInstance(StatusEffects.HASTE, 9600, 0), new StatusEffectInstance(StatusEffects.WEAKNESS, 1800, 1)));
+                    new Potion("haste", new StatusEffectInstance(StatusEffects.HASTE, 9600, 0), new StatusEffectInstance(StatusEffects.WEAKNESS, 9600, 1)));
 
     public static final RegistryEntry<Potion> STRONG_HASTE_POTION =
             Registry.registerReference(
                     Registries.POTION,
                     Identifier.of(WaywardAlchemist.MOD_ID, "strong_haste"),
-                    new Potion("haste", new StatusEffectInstance(StatusEffects.HASTE, 3600, 1), new StatusEffectInstance(StatusEffects.WEAKNESS, 1800, 1)));
+                    new Potion("haste", new StatusEffectInstance(StatusEffects.HASTE, 3600, 1), new StatusEffectInstance(StatusEffects.WEAKNESS, 3600, 1)));
+
+    public static final RegistryEntry<Potion> STURDY_POTION =
+            Registry.registerReference(
+                    Registries.POTION,
+                    Identifier.of(WaywardAlchemist.MOD_ID, "sturdy"),
+                    new Potion("sturdy", new StatusEffectInstance(WaywardAlchemistEffects.STURDY, 600, 0)));
+
+    public static final RegistryEntry<Potion> GRACEFUL_POTION =
+            Registry.registerReference(
+                    Registries.POTION,
+                    Identifier.of(WaywardAlchemist.MOD_ID, "weightless"),
+                    new Potion("graceful", new StatusEffectInstance(WaywardAlchemistEffects.GRACEFUL, 9600, 0)));
+
+    public static final RegistryEntry<Potion> LONG_GRACEFUL_POTION =
+            Registry.registerReference(
+                    Registries.POTION,
+                    Identifier.of(WaywardAlchemist.MOD_ID, "long_graceful"),
+                    new Potion("graceful", new StatusEffectInstance(WaywardAlchemistEffects.GRACEFUL, 19200, 0)));
+
+    public static final RegistryEntry<Potion> CRASHLAND_POTION =
+            Registry.registerReference(
+                    Registries.POTION,
+                    Identifier.of(WaywardAlchemist.MOD_ID, "crashland"),
+                    new Potion("crashland", new StatusEffectInstance(WaywardAlchemistEffects.CRASHLAND, 900, 0)));
+
+    public static final RegistryEntry<Potion> LONG_CRASHLAND_POTION =
+            Registry.registerReference(
+                    Registries.POTION,
+                    Identifier.of(WaywardAlchemist.MOD_ID, "long_crashland"),
+                    new Potion("crashland", new StatusEffectInstance(WaywardAlchemistEffects.CRASHLAND, 1800, 0)));
 
     public static final RegistryEntry<Potion> OVERDOSE_POTION =
             Registry.registerReference(
@@ -215,6 +245,36 @@ public class WaywardAlchemistPotions {
                     LONG_OVERDOSE_POTION
             );
             builder.registerPotionRecipe(
+                    Potions.AWKWARD,
+                    Items.ARMADILLO_SCUTE,
+                    STURDY_POTION
+            );
+            builder.registerPotionRecipe(
+                    Potions.AWKWARD,
+                    Items.PINK_PETALS,
+                    GRACEFUL_POTION
+            );
+            builder.registerPotionRecipe(
+                    GRACEFUL_POTION,
+                    Items.REDSTONE,
+                    LONG_GRACEFUL_POTION
+            );
+            builder.registerPotionRecipe(
+                    GRACEFUL_POTION,
+                    Items.FERMENTED_SPIDER_EYE,
+                    CRASHLAND_POTION
+            );
+            builder.registerPotionRecipe(
+                    CRASHLAND_POTION,
+                    Items.REDSTONE,
+                    LONG_CRASHLAND_POTION
+            );
+            builder.registerPotionRecipe(
+                    LONG_GRACEFUL_POTION,
+                    Items.FERMENTED_SPIDER_EYE,
+                    LONG_CRASHLAND_POTION
+            );
+            builder.registerPotionRecipe(
                     Potions.THICK,
                     Items.GOLDEN_APPLE,
                     ABSORPTION_POTION
@@ -246,7 +306,7 @@ public class WaywardAlchemistPotions {
             );
             builder.registerPotionRecipe(
                     HASTE_POTION,
-                    Items.GLOWSTONE,
+                    Items.GLOWSTONE_DUST,
                     STRONG_HASTE_POTION
             );
             builder.registerPotionRecipe(

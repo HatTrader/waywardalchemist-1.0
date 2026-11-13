@@ -54,6 +54,7 @@ public class WaywardAlchemistBlocks {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(fabricItemGroupEntries -> {
             fabricItemGroupEntries.add(WaywardAlchemistBlocks.BOILING_BREWER_BLOCK);
         });
+
     }
 
 }

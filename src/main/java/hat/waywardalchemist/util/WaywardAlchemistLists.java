@@ -38,7 +38,8 @@ public class WaywardAlchemistLists {
             WaywardAlchemistEffects.FLAMMABILITY, StatusEffects.FIRE_RESISTANCE,
             WaywardAlchemistEffects.VULNERABILITY, StatusEffects.RESISTANCE,
             StatusEffects.GLOWING, StatusEffects.INVISIBILITY,
-            StatusEffects.DARKNESS, StatusEffects.NIGHT_VISION
+            StatusEffects.DARKNESS, StatusEffects.NIGHT_VISION,
+            WaywardAlchemistEffects.OVERDOSE, WaywardAlchemistEffects.OVERSHIELD
     );
     public static final List<Block> transmutationChainOreBlocks = List.of(
             Blocks.COAL_BLOCK,
