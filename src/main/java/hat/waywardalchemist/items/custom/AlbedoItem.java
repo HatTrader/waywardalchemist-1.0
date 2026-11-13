@@ -34,6 +34,14 @@ public class AlbedoItem extends Item {
             world.spawnEntity(new ItemEntity(world, pos2.x, pos2.y, pos2.z, new ItemStack(WaywardAlchemistItems.CITRINAS, 1)));
             context.getStack().decrement(1);
         }
+        if (world.getBlockState(pos).getBlock() == Blocks.RESIN_BLOCK) {
+            world.breakBlock(pos, false);
+            Vec3d pos2 = pos.toCenterPos();
+            world.playSound((Entity)null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0F, 1.0F);
+            world.spawnEntity(new ItemEntity(world, pos2.x, pos2.y, pos2.z, new ItemStack(WaywardAlchemistItems.AMBER_BOTTLE, 1)));
+            context.getStack().decrement(1);
+        }
         return super.useOnBlock(context);
     }
+
 }

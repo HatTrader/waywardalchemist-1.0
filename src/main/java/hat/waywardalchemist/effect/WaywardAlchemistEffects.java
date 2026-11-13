@@ -2,20 +2,14 @@ package hat.waywardalchemist.effect;
 
 import hat.waywardalchemist.WaywardAlchemist;
 import hat.waywardalchemist.effect.custom.*;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.entity.EntityAttachments;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.effect.StatusEffect;
-import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.util.Identifier;
-
-import java.util.List;
-import java.util.Map;
 
 public class WaywardAlchemistEffects {
 
@@ -46,6 +40,12 @@ public class WaywardAlchemistEffects {
 
     public static final RegistryEntry<StatusEffect> CRASHLAND =
             Registry.registerReference(Registries.STATUS_EFFECT, Identifier.of(WaywardAlchemist.MOD_ID, "crashland"), new CrashlandEffect().addAttributeModifier(EntityAttributes.SAFE_FALL_DISTANCE, Identifier.of("crashland"), -0.25, EntityAttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+
+    public static final RegistryEntry<StatusEffect> BLOOM =
+            Registry.registerReference(Registries.STATUS_EFFECT, Identifier.of(WaywardAlchemist.MOD_ID, "bloom"), new BloomEffect().addAttributeModifier(EntityAttributes.MOVEMENT_SPEED, Identifier.of("bloom"), 0.25, EntityAttributeModifier.Operation.ADD_MULTIPLIED_BASE).addAttributeModifier(EntityAttributes.ATTACK_SPEED, Identifier.of("bloom"), 0.25, EntityAttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+
+    public static final RegistryEntry<StatusEffect> BLIGHT =
+            Registry.registerReference(Registries.STATUS_EFFECT, Identifier.of(WaywardAlchemist.MOD_ID, "blight"), new BlightEffect().addAttributeModifier(EntityAttributes.MOVEMENT_SPEED, Identifier.of("blight"), -0.25, EntityAttributeModifier.Operation.ADD_MULTIPLIED_BASE).addAttributeModifier(EntityAttributes.ATTACK_SPEED, Identifier.of("blight"), -0.25, EntityAttributeModifier.Operation.ADD_MULTIPLIED_BASE));
 
     public static void init() {}
 }

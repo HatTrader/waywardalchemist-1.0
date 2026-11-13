@@ -4,6 +4,7 @@
   "item.waywardalchemist.alchemist_fire": "Alchemist's Fire",
   "item.waywardalchemist.putredo": "Putredo",
   "item.waywardalchemist.albedo": "Albedo",
+  "item.waywardalchemist.amber_bottle": "Pale Amber",
   "item.waywardalchemist.pancea": "Pancea",
   "item.waywardalchemist.citrinas": "Citrinas",
   "item.waywardalchemist.philosophers_ash": "§4Philosopher's Ash",
@@ -18,8 +19,11 @@
   "effect.waywardalchemist.graceful": "Graceful",
   "effect.waywardalchemist.crashland": "Crashland",
   "effect.waywardalchemist.overdose": "Overdose",
-  "effect.waywardalchemist.transmutation": "Lesser Transmutation",
   "effect.waywardalchemist.overshield": "Overshield",
+  "effect.waywardalchemist.transmutation": "Lesser Transmutation",
+  "effect.waywardalchemist.bloom": "§6Bloom",
+  "effect.waywardalchemist.blight": "§6Blight",
+
 
   "item.waywardalchemist.injection_potion.effect.water": "Water Syringe",
   "item.waywardalchemist.injection_potion.effect.mundane": "Mundane Syringe",
