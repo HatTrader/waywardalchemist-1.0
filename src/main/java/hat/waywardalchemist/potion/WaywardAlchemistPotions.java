@@ -84,7 +84,7 @@ public class WaywardAlchemistPotions {
             Registry.registerReference(
                     Registries.POTION,
                     Identifier.of(WaywardAlchemist.MOD_ID, "sturdy"),
-                    new Potion("sturdy", new StatusEffectInstance(WaywardAlchemistEffects.STURDY, 600, 0)));
+                    new Potion("sturdy", new StatusEffectInstance(WaywardAlchemistEffects.STURDY, 1200, 0)));
 
     public static final RegistryEntry<Potion> GRACEFUL_POTION =
             Registry.registerReference(
@@ -132,7 +132,7 @@ public class WaywardAlchemistPotions {
             Registry.registerReference(
                     Registries.POTION,
                     Identifier.of(WaywardAlchemist.MOD_ID, "bloom"),
-                    new Potion("bloom", new StatusEffectInstance(WaywardAlchemistEffects.BLOOM, 1800, 0))
+                    new Potion("bloom", new StatusEffectInstance(WaywardAlchemistEffects.BLOOM, 1200, 0))
             );
 
     public static final RegistryEntry<Potion> EXTRA_STRONG_LEAPING_POTION =
