@@ -42,10 +42,10 @@ public class WaywardAlchemistEffects {
             Registry.registerReference(Registries.STATUS_EFFECT, Identifier.of(WaywardAlchemist.MOD_ID, "crashland"), new CrashlandEffect().addAttributeModifier(EntityAttributes.SAFE_FALL_DISTANCE, Identifier.of("crashland"), -0.25, EntityAttributeModifier.Operation.ADD_MULTIPLIED_BASE));
 
     public static final RegistryEntry<StatusEffect> BLOOM =
-            Registry.registerReference(Registries.STATUS_EFFECT, Identifier.of(WaywardAlchemist.MOD_ID, "bloom"), new BloomEffect().addAttributeModifier(EntityAttributes.MOVEMENT_SPEED, Identifier.of("bloom"), 0.25, EntityAttributeModifier.Operation.ADD_MULTIPLIED_BASE).addAttributeModifier(EntityAttributes.ATTACK_SPEED, Identifier.of("bloom"), 0.25, EntityAttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+            Registry.registerReference(Registries.STATUS_EFFECT, Identifier.of(WaywardAlchemist.MOD_ID, "bloom"), new BloomEffect().addAttributeModifier(EntityAttributes.MOVEMENT_SPEED, Identifier.of("bloom"), 0.30, EntityAttributeModifier.Operation.ADD_MULTIPLIED_BASE).addAttributeModifier(EntityAttributes.ATTACK_SPEED, Identifier.of("bloom"), 0.30, EntityAttributeModifier.Operation.ADD_MULTIPLIED_BASE));
 
     public static final RegistryEntry<StatusEffect> BLIGHT =
-            Registry.registerReference(Registries.STATUS_EFFECT, Identifier.of(WaywardAlchemist.MOD_ID, "blight"), new BlightEffect().addAttributeModifier(EntityAttributes.MOVEMENT_SPEED, Identifier.of("blight"), -0.25, EntityAttributeModifier.Operation.ADD_MULTIPLIED_BASE).addAttributeModifier(EntityAttributes.ATTACK_SPEED, Identifier.of("blight"), -0.25, EntityAttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+            Registry.registerReference(Registries.STATUS_EFFECT, Identifier.of(WaywardAlchemist.MOD_ID, "blight"), new BlightEffect().addAttributeModifier(EntityAttributes.MOVEMENT_SPEED, Identifier.of("blight"), -0.30, EntityAttributeModifier.Operation.ADD_MULTIPLIED_BASE).addAttributeModifier(EntityAttributes.ATTACK_SPEED, Identifier.of("blight"), -0.30, EntityAttributeModifier.Operation.ADD_MULTIPLIED_BASE));
 
     public static void init() {}
 }

@@ -128,6 +128,13 @@ public class WaywardAlchemistPotions {
                     Identifier.of(WaywardAlchemist.MOD_ID, "transmutation"),
                     new Potion("transmutation", new StatusEffectInstance(WaywardAlchemistEffects.TRANSMUTATION, 1, 0)));
 
+    public static final RegistryEntry<Potion> BLOOM_POTION =
+            Registry.registerReference(
+                    Registries.POTION,
+                    Identifier.of(WaywardAlchemist.MOD_ID, "bloom"),
+                    new Potion("bloom", new StatusEffectInstance(WaywardAlchemistEffects.BLOOM, 1800, 0))
+            );
+
     public static final RegistryEntry<Potion> EXTRA_STRONG_LEAPING_POTION =
             Registry.registerReference(
                     Registries.POTION,
@@ -313,6 +320,11 @@ public class WaywardAlchemistPotions {
                     Potions.THICK,
                     WaywardAlchemistItems.ALCHEMIST_FIRE,
                     FLAMMABILITY_POTION
+            );
+            builder.registerPotionRecipe(
+                    Potions.MUNDANE,
+                    WaywardAlchemistItems.AMBER_BOTTLE,
+                    BLOOM_POTION
             );
             // Pain agony and despair but like not actually though
             builder.registerItemRecipe(

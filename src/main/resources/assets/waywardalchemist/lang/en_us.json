@@ -60,6 +60,7 @@
   "item.waywardalchemist.injection_potion.effect.mining_fatigue": "Syringe of Mining Fatigue",
   "item.waywardalchemist.injection_potion.effect.haste": "Syringe of Tunneling",
   "item.waywardalchemist.injection_potion.effect.transmutation": "Failed Syringe",
+  "item.waywardalchemist.injection_potion.effect.bloom": "Caustic Amber Injector",
 
   "item.waywardalchemist.injection_potion.effect.obscurity": "Syringe of Obscurity",
   "item.waywardalchemist.injection_potion.effect.frost_protection": "Syringe of Frost Protection",
@@ -74,7 +75,8 @@
   "item.minecraft.splash_potion.effect.overdose": "Splash Potion of Overdose",
   "item.minecraft.splash_potion.effect.mining_fatigue": "Splash Potion of Mining Fatigue",
   "item.minecraft.splash_potion.effect.haste": "Splash Potion of Tunneling",
-  "item.minecraft.splash_potion.effect.transmutation": "Splash Potion of Lesser Transmutation",
+  "item.minecraft.splash_potion.effect.transmutation": "Lesser Transmutation Splash Mixture",
+  "item.minecraft.splash_potion.effect.bloom": "Caustic Amber Splash Mixture",
 
   "item.minecraft.lingering_potion.effect.flammability": "Lingering Potion of Flammability",
   "item.minecraft.lingering_potion.effect.vulnerability": "Lingering Potion of Vulnerability",
@@ -86,9 +88,8 @@
   "item.minecraft.lingering_potion.effect.overdose": "Lingering Potion of Overdose",
   "item.minecraft.lingering_potion.effect.mining_fatigue": "Lingering Potion of Mining Fatigue",
   "item.minecraft.lingering_potion.effect.haste": "Lingering Potion of Tunneling",
-  "item.minecraft.lingering_potion.effect.transmutation": "Lingering Potion of Lesser Transmutation",
-
-
+  "item.minecraft.lingering_potion.effect.transmutation": "Lesser Transmutation Lingering Mixture",
+  "item.minecraft.lingering_potion.effect.bloom": "Caustic Amber Lingering Mixture",
 
   "item.minecraft.potion.effect.flammability": "Potion of Flammability",
   "item.minecraft.potion.effect.vulnerability": "Potion of Vulnerability",
@@ -100,7 +101,8 @@
   "item.minecraft.potion.effect.overdose": "Potion of Overdose",
   "item.minecraft.potion.effect.mining_fatigue": "Potion of Mining Fatigue",
   "item.minecraft.potion.effect.haste": "Potion of Tunneling",
-  "item.minecraft.potion.effect.transmutation": "Potion of Lesser Transmutation",
+  "item.minecraft.potion.effect.transmutation": "Lesser Transmutation Mixture",
+  "item.minecraft.potion.effect.bloom": "Caustic Amber Mixture",
 
   "item.minecraft.tipped_arrow.effect.flammability": "Arrow of Flammability",
   "item.minecraft.tipped_arrow.effect.vulnerability": "Arrow of Vulnerability",
@@ -113,6 +115,7 @@
   "item.minecraft.tipped_arrow.effect.mining_fatigue": "Arrow of Mining Fatigue",
   "item.minecraft.tipped_arrow.effect.haste": "Arrow of Tunneling",
   "item.minecraft.tipped_arrow.effect.transmutation": "Arrow of Lesser Transmutation",
+  "item.minecraft.tipped_arrow.effect.bloom": "Amber Tipped Arrow",
 
   "potion.potency.6": "VI",
 
