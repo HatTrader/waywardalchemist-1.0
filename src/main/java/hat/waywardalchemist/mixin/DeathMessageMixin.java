@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class DeathMessageMixin {
     @Inject(at = @At("HEAD"), method = "getDeathMessage", cancellable = true)
     private void waywardAlchemist$modifyDeathMessage(LivingEntity killed, CallbackInfoReturnable<Text> cir) {
-        if (killed.getLastAttacker() != null && killed.getLastAttacker().getStackInHand(killed.getLastAttacker().preferredHand).getItem() instanceof CitrinasItem) {
+        if (killed.getLastAttacker() != null && killed.preferredHand != null && killed.getLastAttacker().getStackInHand(killed.getLastAttacker().preferredHand).getItem() instanceof CitrinasItem) {
             cir.setReturnValue(Text.literal(killed.getName().getString() + " was harvested"));
         }
     }

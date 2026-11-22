@@ -8,6 +8,9 @@ import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvent;
+import net.minecraft.sound.SoundEvents;
 import org.jspecify.annotations.Nullable;
 
 import java.util.Collection;
@@ -25,6 +28,7 @@ public class TransmutationEffect extends StatusEffect {
 
     @Override
     public void applyInstantEffect(ServerWorld world, @Nullable Entity effectEntity, @Nullable Entity attacker, LivingEntity target, int amplifier, double proximity) {
+        world.playSound(target, target.getBlockPos(), SoundEvents.ENTITY_GENERIC_EXTINGUISH_FIRE, SoundCategory.AMBIENT);
         Collection<StatusEffectInstance> effects = List.copyOf(target.getStatusEffects());
         for (StatusEffectInstance instance : effects) {
             target.addStatusEffect(transmuteEffect(instance, target));

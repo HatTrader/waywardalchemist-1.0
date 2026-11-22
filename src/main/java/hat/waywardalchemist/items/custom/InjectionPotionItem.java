@@ -31,16 +31,12 @@ public class InjectionPotionItem extends PotionItem {
         if (attacker instanceof PlayerEntity player) {
             if (!player.getItemCooldownManager().isCoolingDown(stack)) {
                 PotionContentsComponent potionContentsComponent = (PotionContentsComponent) stack.getOrDefault(DataComponentTypes.POTION_CONTENTS, PotionContentsComponent.DEFAULT);
-                for (StatusEffectInstance effect : potionContentsComponent.getEffects()) {
-                    RegistryEntry<StatusEffect> registryEntry = effect.getEffectType();
-                    target.addStatusEffect(new StatusEffectInstance(registryEntry, effect.getDuration()/2, effect.getAmplifier()));
-                }
+                potionContentsComponent.apply(target, 0.5f);
                 target.getEntityWorld().playSound(null, target.getX(), target.getY(), target.getZ(), SoundEvents.ITEM_SPEAR_HIT, SoundCategory.PLAYERS, 1.1f, 1.0f);
                 player.getItemCooldownManager().set(stack, 75);
                 stack.decrement(1);
             }
         }
-
         super.postHit(stack, target, attacker);
     }
 }
